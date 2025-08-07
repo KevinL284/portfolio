@@ -211,28 +211,8 @@ const SKILLS_DATA = {
 
 // === EXPERIENCE DATA === //
 
-const EXPERIENCE_DATA = [
-  {
-    period: "2024 - Atual",
-    title: "Freelancer - Desenvolvedor Backend",
-    company: "Autônomo",
-    description: "Desenvolvimento de APIs e sistemas backend para diversos clientes, com foco em Python e arquiteturas escaláveis.",
-    technologies: ["Python", "FastAPI", "PostgreSQL", "Docker", "AWS"],
-    achievements: [
-      "Desenvolveu mais de 10 APIs para diferentes clientes",
-      "Implementou soluções de cache que melhoraram performance em 60%",
-      "Criou documentação técnica completa para todos os projetos"
-    ]
-  },
-  {
-    period: "2025 - Atual",
-    title: "Enetrix - UFPB",
-    company: "Universidade Federal da Paraíba",
-    description: "Desenvolvimento de projetos de análise de dados e como parte de colaboração voluntária.",
-    technologies: ["Python", "Data Analysis", "SQL", "Machine Learning"],
-    achievements: ["participante e colaborador em projetos de pesquisa", "desenvolvimento de notebooks para coleta de dados fracamente estruturados"]
-  }
-];
+// Experiência removida temporariamente - será reimplementada em HTML puro
+const EXPERIENCE_DATA = [];
 
 // === CONTACT METHODS === //
 
@@ -316,3 +296,9 @@ window.ERROR_MESSAGES = ERROR_MESSAGES;
 window.SUCCESS_MESSAGES = SUCCESS_MESSAGES;
 
 console.log("✅ Configuration loaded successfully");
+console.log("📊 Data loaded:", {
+  projects: PROJECTS_DATA.length,
+  skillCategories: Object.keys(SKILLS_DATA).length,
+  experiences: EXPERIENCE_DATA.length,
+  contacts: CONTACT_METHODS.length
+});

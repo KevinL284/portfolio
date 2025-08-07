@@ -689,9 +689,101 @@ class ContactFormManager {
   }
 }
 
+// === CONTENT RENDERERS === //
+
+class SkillsRenderer {
+  static render() {
+    console.log("🔨 Rendering skills section...");
+    const skillsContainer = DOM.get('#skills .grid');
+    if (!skillsContainer) {
+      console.error("❌ Skills container not found");
+      return;
+    }
+    if (!window.SKILLS_DATA) {
+      console.error("❌ Skills data not loaded");
+      return;
+    }
+
+    console.log("📊 Skills data:", window.SKILLS_DATA);
+
+    const categories = Object.keys(window.SKILLS_DATA);
+
+    skillsContainer.innerHTML = categories.map((category, index) => {
+      const skills = window.SKILLS_DATA[category];
+      const categoryTitle = {
+        backend: 'Backend Development',
+        data: 'Data Engineering',
+        tools: 'Ferramentas & DevOps'
+      }[category] || category.charAt(0).toUpperCase() + category.slice(1);
+
+      return `
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">${categoryTitle}</h3>
+          <div class="space-y-4">
+            ${skills.map(skill => `
+              <div class="skill-item flex items-center space-x-4 p-4 bg-gray-50 dark:bg-slate-800 rounded-xl hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-all duration-200 hover:translate-x-2">
+                <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
+                  <i class="${skill.icon} text-primary-600 dark:text-primary-400 text-xl"></i>
+                </div>
+                <span class="font-semibold text-gray-900 dark:text-white">${skill.name}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    console.log("✅ Skills section rendered successfully");
+  }
+}
+
+class ContactRenderer {
+  static render() {
+    console.log("🔨 Rendering contact section...");
+    const contactContainer = DOM.id('contactMethods');
+    if (!contactContainer) {
+      console.error("❌ Contact container not found");
+      return;
+    }
+    if (!window.CONTACT_METHODS) {
+      console.error("❌ Contact methods data not loaded");
+      return;
+    }
+
+    console.log("📊 Contact methods data:", window.CONTACT_METHODS);
+
+    contactContainer.innerHTML = window.CONTACT_METHODS.map((contact, index) => {
+      const colorClasses = {
+        email: 'bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 group-hover:bg-primary-500',
+        whatsapp: 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 group-hover:bg-green-500',
+        linkedin: 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:bg-blue-500',
+        github: 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 group-hover:bg-gray-800 dark:group-hover:bg-gray-600'
+      };
+
+      return `
+        <a href="${contact.href}"
+           target="${contact.type === 'email' ? '_self' : '_blank'}"
+           class="flex items-center p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+          <div class="w-14 h-14 ${colorClasses[contact.type]} rounded-xl flex items-center justify-center transition-colors mr-4">
+            <i class="${contact.icon} group-hover:text-white text-xl"></i>
+          </div>
+          <div>
+            <p class="font-semibold text-gray-900 dark:text-white">${contact.label}</p>
+            <p class="text-gray-600 dark:text-gray-300">${contact.value}</p>
+          </div>
+        </a>
+      `;
+    }).join('');
+
+    console.log("✅ Contact section rendered successfully");
+  }
+}
+
 // === INITIALIZE COMPONENTS === //
 
 document.addEventListener('DOMContentLoaded', () => {
+  console.log("🔧 Starting component initialization...");
+
   // Initialize all components
   window.themeManager = new ThemeManager();
   window.navigationManager = new NavigationManager();
@@ -700,6 +792,22 @@ document.addEventListener('DOMContentLoaded', () => {
   window.scrollAnimations = new ScrollAnimations();
   window.contactManager = new ContactManager();
   window.contactFormManager = new ContactFormManager();
+
+  // Wait for config to be loaded, then render content
+  const renderContent = () => {
+    if (window.SKILLS_DATA && window.CONTACT_METHODS) {
+      console.log("📊 Rendering dynamic content...");
+      SkillsRenderer.render();
+      ContactRenderer.render();
+      console.log("✅ Dynamic content rendered");
+    } else {
+      console.log("⏳ Waiting for data to load...");
+      setTimeout(renderContent, 100);
+    }
+  };
+
+  // Start rendering after a short delay to ensure config is loaded
+  setTimeout(renderContent, 200);
 
   console.log("✅ All components initialized");
 });
