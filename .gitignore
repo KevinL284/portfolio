@@ -1,0 +1,155 @@
+# ===== SISTEMA OPERACIONAL ===== #
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ===== EDITORES ===== #
+
+# Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# ===== DESENVOLVIMENTO WEB ===== #
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+package-lock.json
+yarn.lock
+
+# Build outputs
+dist/
+build/
+out/
+
+# Cache
+.cache/
+.parcel-cache/
+
+# ===== LOGS ===== #
+
+# Logs gerais
+*.log
+logs/
+*.log.*
+
+# ===== TEMPORÁRIOS ===== #
+
+# Arquivos temporários
+*.tmp
+*.temp
+.tmp/
+.temp/
+
+# Backup files
+*.bak
+*.backup
+
+# ===== ESPECÍFICO DO PROJETO ===== #
+
+# Arquivos de ambiente (se adicionar futuramente)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Certificados SSL
+*.pem
+*.key
+*.crt
+
+# Uploads e assets temporários
+uploads/
+temp-assets/
+
+# ===== DEPLOY ===== #
+
+# Netlify
+.netlify/
+
+# Vercel
+.vercel/
+
+# GitHub Pages (se usar)
+_site/
+
+# ===== OUTROS ===== #
+
+# Coverage reports
+coverage/
+*.lcov
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# ESLint cache
+.eslintcache
+
+# Sass cache
+.sass-cache/
+
+# ===== ARQUIVOS PESSOAIS ===== #
+
+# Currículos em formatos temporários (manter apenas o PDF final)
+# CurriculovKevin.pdf - Este deve ficar versionado
+*.docx
+*.doc
+cv-temp.*
+curriculo-temp.*
+
+# Notas e rascunhos pessoais
+notas.md
+TODO.md
+rascunhos/
+
+# Screenshots temporários para desenvolvimento
+screenshots-dev/
+temp-images/
