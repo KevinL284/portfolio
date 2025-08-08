@@ -791,7 +791,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.dynamicContentManager = new DynamicContentManager();
   window.scrollAnimations = new ScrollAnimations();
   window.contactManager = new ContactManager();
-  window.contactFormManager = new ContactFormManager();
+  // ContactFormManager disabled - using Netlify Forms
+  // window.contactFormManager = new ContactFormManager();
 
   // Wait for config to be loaded, then render content
   const renderContent = () => {
