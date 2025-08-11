@@ -494,10 +494,11 @@
                             <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Envie uma mensagem</h3>
                             <p class="text-gray-600 dark:text-gray-400 text-sm flex items-start space-x-2">
                                 <i class="fas fa-info-circle text-primary-500 mt-0.5 flex-shrink-0"></i>
-                                <span>Formulário configurado para Netlify. Após o deploy, as mensagens chegarão automaticamente no email kevin.lucas284sz@gmail.com</span>
+                                <span>Formulário configurado com Getform. As mensagens serão enviadas para kevin.lucas284sz@gmail.com</span>
                             </p>
                         </div>
-                        <form class="space-y-6" id="contactForm" action="https://app.getform.io/f/bllqjrdb" method="POST" accept-charset="UTF-8">
+                        <form class="space-y-6" id="contactForm" action="https://getform.io/f/bllqjrdb" method="POST">
+                            <input type="hidden" name="_gotcha" style="display:none !important">
                             <div>
                                 <label for="name" class="block text-sm font-semibold text-gray-900 dark:text-white mb-2">Seu Nome</label>
                                 <input type="text" id="name" name="name" required
