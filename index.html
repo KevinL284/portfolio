@@ -69,9 +69,9 @@
         }
     </script>
 
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="src/styles/custom.css">
+
 </head>
+<link rel="stylesheet" href="src/styles/custom.css">
 <body class="loading">
     <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
@@ -176,19 +176,34 @@
                             </div>
 
                             <!-- Floating Tech Icons -->
-                            <div class="absolute inset-0 pointer-events-none">
-                                <div class="absolute -top-9 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-white dark:bg-gray-800 rounded-2xl shadow-xl flex items-center justify-center text-primary-600 text-2xl animate-float border border-gray-200 dark:border-gray-600" title="Python">
-                                    <i class="fab fa-python"></i>
-                                </div>
-                                <div class="absolute top-1/2 -right-12 transform -translate-y-1/2 w-16 h-16 bg-white dark:bg-gray-800 rounded-2xl shadow-xl flex items-center justify-center text-primary-600 text-2xl animate-float border border-gray-200 dark:border-gray-600" style="animation-delay: 0.5s" title="C#">
-                                    <i class="fab fa-microsoft"></i>
-                                </div>
-                                <div class="absolute -bottom-9 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-white dark:bg-gray-800 rounded-2xl shadow-xl flex items-center justify-center text-primary-600 text-2xl animate-float border border-gray-200 dark:border-gray-600" style="animation-delay: 1s" title="Database">
-                                    <i class="fas fa-database"></i>
-                                </div>
-                                <div class="absolute top-1/2 -left-12 transform -translate-y-1/2 w-16 h-16 bg-white dark:bg-gray-800 rounded-2xl shadow-xl flex items-center justify-center text-primary-600 text-2xl animate-float border border-gray-200 dark:border-gray-600" style="animation-delay: 1.5s" title="Git">
-                                    <i class="fab fa-git-alt"></i>
-                                </div>
+                            <div class="tech-orbit absolute inset-0 pointer-events-none">
+                            <div
+                            class="tech-orbit__item tech-orbit__item--top absolute -top-9 left-1/2 w-16 h-16 bg-white dark:bg-gray-800 rounded-2xl shadow-xl flex items-center justify-center text-primary-600 text-2xl border border-gray-200 dark:border-gray-600"
+                            title="Python"
+                            >
+                            <i class="fab fa-python"></i>
+                            </div>
+
+                            <div
+                            class="tech-orbit__item tech-orbit__item--right absolute top-1/2 -right-12 w-16 h-16 bg-white dark:bg-gray-800 rounded-2xl shadow-xl flex items-center justify-center text-primary-600 text-2xl border border-gray-200 dark:border-gray-600"
+                            title="C#"
+                            >
+                            <i class="fab fa-microsoft"></i>
+                            </div>
+
+                            <div
+                            class="tech-orbit__item tech-orbit__item--bottom absolute -bottom-9 left-1/2 w-16 h-16 bg-white dark:bg-gray-800 rounded-2xl shadow-xl flex items-center justify-center text-primary-600 text-2xl border border-gray-200 dark:border-gray-600"
+                            title="Database"
+                            >
+                            <i class="fas fa-database"></i>
+                            </div>
+
+                            <div
+                            class="tech-orbit__item tech-orbit__item--left absolute top-1/2 -left-12 w-16 h-16 bg-white dark:bg-gray-800 rounded-2xl shadow-xl flex items-center justify-center text-primary-600 text-2xl border border-gray-200 dark:border-gray-600"
+                            title="Git"
+                            >
+                            <i class="fab fa-git-alt"></i>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -217,13 +232,13 @@
                     <div class="lg:col-span-2 space-y-6">
                         <div class="prose prose-lg prose-gray dark:prose-invert max-w-none">
                             <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                                Sou um desenvolvedor apaixonado por tecnologia com foco em <span class="text-primary-600 dark:text-primary-400 font-semibold">desenvolvimento backend</span>
-                                e <span class="text-primary-600 dark:text-primary-400 font-semibold">engenharia de dados</span>. Atualmente no último semestre do curso de Ciência da Computação na FPB,
-                                <span id="graduationStatus">dezembro de 2025</span>.
+                                Sou graduado em Ciência da Computação, com foco em <span class="text-primary-600 dark:text-primary-400 font-semibold">desenvolvimento backend</span>,
+                                <span class="text-primary-600 dark:text-primary-400 font-semibold">engenharia de dados</span> e aplicações práticas de
+                                <span class="text-primary-600 dark:text-primary-400 font-semibold">inteligência artificial</span>.
+                                Tenho experiência na construção de APIs, pipelines de dados, automações e soluções que combinam arquitetura de software, processamento de linguagem natural e análise de dados.
                             </p>
                             <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                                Minha experiência inclui desenvolvimento de APIs robustas, análise de dados complexos
-                                e implementação de soluções escaláveis que atendem às necessidades específicas do negócio.
+                                Meus projetos recentes exploram desde pipelines ETL com FastAPI, PostgreSQL e Docker até classificação de e-mails com NLP e extração de informações em documentos complexos com IA generativa, regex, NER léxico e modelos de linguagem.
                             </p>
                         </div>
 
@@ -232,8 +247,8 @@
                             <div class="space-y-4">
                                 <div class="flex items-center space-x-3">
                                     <div class="w-2 h-2 bg-primary-500 rounded-full"></div>
-                                    <span class="font-semibold text-gray-900 dark:text-white">Idade:</span>
-                                    <span class="text-gray-600 dark:text-gray-300" id="currentAge">20 anos</span>
+                                    <span class="font-semibold text-gray-900 dark:text-white">Formação:</span>
+                                    <span class="text-gray-600 dark:text-gray-300">Ciência da Computação</span>
                                 </div>
                                 <div class="flex items-center space-x-3">
                                     <div class="w-2 h-2 bg-primary-500 rounded-full"></div>
@@ -287,6 +302,44 @@
                     <!-- Linha vertical da timeline -->
                     <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-px h-full bg-primary-300 dark:bg-primary-700"></div>
 
+                    <div class="relative flex items-center mb-12">
+                        <div class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary-500 rounded-full border-4 border-white dark:border-slate-900 shadow-lg z-10"></div>
+
+                        <div class="ml-8 md:ml-0 md:w-1/2 md:ml-auto md:pl-8">
+                            <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                    <span class="inline-block px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm font-semibold mb-3 md:mb-0">
+                                        <div class="inline w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
+                                        Mai 2026 - Atual
+                                    </span>
+                                </div>
+
+                                <h3 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                                    Analista de Dados em Faturamento
+                                </h3>
+
+                                <p class="text-lg font-semibold text-primary-600 dark:text-primary-400 mb-3">
+                                    Experiência Corporativa
+                                </p>
+
+                                <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                                    Atuação na área de faturamento, com análise operacional de dados, conferência de informações fiscais,
+                                    acompanhamento de processos internos e identificação de inconsistências em sistemas corporativos.
+                                    Experiência aplicada ao entendimento de fluxos empresariais, dados transacionais, regras de negócio
+                                    e melhoria de processos.
+                                </p>
+
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium">Análise de Dados</span>
+                                    <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-lg text-sm font-medium">Faturamento</span>
+                                    <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-lg text-sm font-medium">Processos Internos</span>
+                                    <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded-lg text-sm font-medium">Regras de Negócio</span>
+                                    <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-lg text-sm font-medium">Sistemas ERP</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Experience Item 1 - Enetrix -->
                     <div class="relative flex items-center mb-12">
                         <!-- Timeline dot -->
@@ -298,7 +351,7 @@
                                 <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                                     <span class="inline-block px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm font-semibold mb-3 md:mb-0">
                                         <div class="inline w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-                                        Jul 2025 - Atual
+                                        Jul 2025 - jan 2026
                                     </span>
                                 </div>
                                 <h3 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-3">
@@ -321,7 +374,7 @@
                         </div>
                     </div>
 
-                    <!-- Experience Item 2 - CodeBox -->
+                    <!-- Experience Item 2 - SunDevBeach -->
                     <div class="relative flex items-center mb-12">
                         <!-- Timeline dot -->
                         <div class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary-500 rounded-full border-4 border-white dark:border-slate-900 shadow-lg z-10"></div>
@@ -339,10 +392,10 @@
                                     Fundador & Desenvolvedor Backend
                                 </h3>
                                 <p class="text-lg font-semibold text-primary-600 dark:text-primary-400 mb-3">
-                                    CodeBox
+                                    SunDevBeach
                                 </p>
                                 <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                                    Fundador do grupo CodeBox, um grupo de pesquisa e produção freelancer no mercado de tecnologia. Atuo como Backend Developer, Project Manager e Engenheiro de Dados, liderando projetos e desenvolvendo soluções escaláveis.
+                                    Fundador do grupo SunDevBeach, um grupo de pesquisa e produção freelancer no mercado de tecnologia. Atuo como Backend Developer, Project Manager e Engenheiro de Dados, liderando projetos e desenvolvendo soluções escaláveis.
                                 </p>
                                 <div class="flex flex-wrap gap-2">
                                     <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium">Python</span>
@@ -616,7 +669,7 @@
     </footer>
 
     <!-- Project Modal -->
-    <div class="modal hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center" id="projectModal">
+    <div class="modal hidden fixed inset-0 bg-black/70 z-[9999] items-center justify-center p-4" id="projectModal">
         <div class="modal__overlay absolute inset-0"></div>
         <div class="modal__content bg-white dark:bg-slate-800 rounded-2xl max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto relative">
             <button class="modal__close absolute top-4 right-4 w-10 h-10 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors" id="modalClose">
@@ -670,19 +723,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="src/scripts/config.js"></script>
-    <script src="src/scripts/utils.js"></script>
-    <script src="src/scripts/projects.js"></script>
-    <script src="src/scripts/components.js"></script>
-    <script src="src/scripts/tailwind-animations.js"></script>
-    <script src="src/scripts/main.js"></script>
+    <script type="module" src="src/scripts/main.js"></script>
 
-    <!-- Scripts -->
-    <script src="src/scripts/config.js"></script>
-    <script src="src/scripts/utils.js"></script>
-    <script src="src/scripts/projects.js"></script>
-    <script src="src/scripts/components.js"></script>
-    <script src="src/scripts/tailwind-animations.js"></script>
-    <script src="src/scripts/main.js"></script>
 </body>
 </html>
