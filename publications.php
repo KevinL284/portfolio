@@ -6,11 +6,11 @@ header('Cache-Control: public, max-age=900');
 header('X-Content-Type-Options: nosniff');
 
 // Set this to the handle of Kevin's Medium profile, without the @.
-const MEDIUM_HANDLE = '';
+const MEDIUM_HANDLE = 'kevin.lucas284sz';
 
 function readMediumArticles(): array
 {
-    if (!preg_match('/^[a-zA-Z0-9_-]{1,64}$/', MEDIUM_HANDLE)
+    if (!preg_match('/^[a-zA-Z0-9_.-]{1,64}$/', MEDIUM_HANDLE)
         || !function_exists('curl_init') || !function_exists('simplexml_load_string')) {
         return [];
     }
