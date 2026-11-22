@@ -14,8 +14,8 @@ try {
 } catch {}
 </script>
 <style>
-:root{color-scheme:light;--bg:#f5f7f8;--surface:#fff;--ink:#14242e;--muted:#49606d;--line:#d5e0e4;--accent:#005c53;--wash:#e0f0ed;--button:#005c53;--on-button:#fff;--grid:#c7dadc}
-[data-theme=dark]{color-scheme:dark;--bg:#0d171e;--surface:#14242e;--ink:#edf6f8;--muted:#a9bec8;--line:#314752;--accent:#8be2cd;--wash:#183b39;--button:#8be2cd;--on-button:#102623;--grid:#324d56}
+:root{color-scheme:light;--bg:#f5f7fc;--surface:#fff;--ink:#112344;--muted:#465978;--line:#d3deef;--accent:#234f9a;--wash:#e6eefb;--button:#16396e;--on-button:#fff;--grid:#bbcfef;--network:#3569bb}
+[data-theme=dark]{color-scheme:dark;--bg:#0a1427;--surface:#111f37;--ink:#eef4ff;--muted:#aebfdd;--line:#2b4163;--accent:#9ebdff;--wash:#142a50;--button:#b2cbff;--on-button:#102348;--grid:#284675;--network:#80aaf7}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:2rem}
 body{margin:0;background:var(--bg);color:var(--ink);font:1rem/1.65 "Inter",system-ui,sans-serif}
@@ -75,6 +75,40 @@ dd{margin:0;text-align:right;font-weight:650}
 @media(max-width:760px){.hero{grid-template-columns:1fr}.bar nav{order:3;width:100%;gap:.85rem}.bar .wrap{gap:.65rem}}
 @media(max-width:520px){.cards,.role{grid-template-columns:1fr}.role{gap:.35rem}.control,.button{padding-inline:.65rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.hero{position:relative;isolation:isolate}
+.hero-graph{position:absolute;z-index:-1;inset:0 -1rem 0 28%;color:var(--network);opacity:.23;pointer-events:none;mask-image:linear-gradient(90deg,transparent,#000 45%,#000)}
+.hero-graph svg{width:100%;height:100%;display:block}
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.2rem}
+.filters [aria-pressed=true]{background:var(--button);color:var(--on-button);border-color:var(--button)}
+.project{display:flex;padding:0;overflow:hidden}
+.project[hidden]{display:none}
+.project-open{display:block;position:relative;width:100%;height:clamp(160px,23vw,235px);padding:0;border:0;background:var(--wash);color:var(--accent);overflow:hidden}
+.project-open:focus-visible{outline-offset:-4px}
+.project-open img,.dialog-cover img{display:block;width:100%;height:100%;object-fit:cover}
+.project-open > span{position:absolute;right:.75rem;bottom:.75rem;padding:.15rem .5rem;border:1px solid var(--line);border-radius:.3rem;background:var(--surface);color:var(--ink)}
+.cover-graphic{position:relative;height:100%;background:var(--wash);display:grid;place-items:center;color:var(--accent)}
+.cover-graphic svg{position:absolute;inset:0;width:100%;height:100%;opacity:.3}
+.cover-graphic span{position:relative;font:700 clamp(1.3rem,4vw,2.5rem) ui-monospace,monospace;padding:.35rem .6rem;background:var(--surface);border:1px solid var(--line);border-radius:.35rem}
+.project-body{display:flex;flex-direction:column;align-items:flex-start;width:100%;flex:1;padding:clamp(1rem,3vw,1.55rem)}
+.details-button{border:0;padding:.3rem 0;margin-top:.75rem;background:none;color:var(--accent);font-weight:750;text-decoration:underline;text-underline-offset:.23em}
+dialog{width:min(700px,calc(100% - 1.5rem));max-height:calc(100% - 1.5rem);padding:0;border:1px solid var(--line);border-radius:.75rem;background:var(--surface);color:var(--ink)}
+dialog::backdrop{background:#061022ba}
+.dialog-wrap{padding:clamp(1rem,4vw,2rem)}
+.dialog-close{display:flex;justify-content:flex-end;margin-bottom:.55rem}
+.dialog-cover{height:clamp(150px,35vw,300px);overflow:hidden;border-radius:.45rem;margin-bottom:1rem;background:var(--wash)}
+.dialog-cover img{object-fit:contain}
+.dialog-wrap .links{margin-top:1rem}
+.contact{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);align-items:start;gap:clamp(1.2rem,5vw,4rem)}
+.email-link{display:inline-block;margin:.65rem 0 1rem;font-weight:700;overflow-wrap:anywhere}
+.contact-form,.contact-form label{display:grid;gap:.4rem}
+.contact-form{gap:.85rem}
+.form-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
+.contact-form label{font-weight:650}
+.contact-form input:not([hidden]),.contact-form textarea{width:100%;min-width:0;padding:.6rem;border:1px solid var(--line);border-radius:.35rem;background:var(--bg);color:var(--ink);font:inherit}
+.contact-form textarea{resize:vertical}
+.contact-form button{justify-self:start}
+@media(max-width:760px){.contact{grid-template-columns:1fr}.hero-graph{inset:0 0 0 10%}}
+@media(max-width:440px){.form-row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -96,10 +130,11 @@ dd{margin:0;text-align:right;font-weight:650}
 </header>
 <main id="main" class="wrap">
   <section class="hero" id="home" aria-labelledby="hero-title">
+    <div class="hero-graph"><svg viewBox="0 0 680 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke="currentColor"><path d="M-20 286 L102 230 182 278 268 160 378 196 474 102 601 145 710 52 M102 230 L61 111 191 52 268 160 331 55 474 102 553 25 601 145 635 282 474 102 M182 278 L352 324 378 196 521 267 635 282 M61 111 L-20 67 M331 55 L378 196 M521 267 L601 145"/></g><g fill="currentColor"><circle cx="102" cy="230" r="5"/><circle cx="182" cy="278" r="3"/><circle cx="268" cy="160" r="3"/><circle cx="378" cy="196" r="5"/><circle cx="474" cy="102" r="3"/><circle cx="601" cy="145" r="3"/><circle cx="61" cy="111" r="5"/><circle cx="191" cy="52" r="3"/><circle cx="331" cy="55" r="3"/><circle cx="553" cy="25" r="5"/><circle cx="635" cy="282" r="3"/><circle cx="352" cy="324" r="3"/><circle cx="521" cy="267" r="5"/></g></svg></div>
     <div>
       <p class="eyebrow" data-en="ENGINEERING · DATA · OPERATIONS">ENGENHARIA · DADOS · OPERAÇÕES</p>
       <h1 id="hero-title" data-en="Data engineering & backend">Engenharia de dados &amp; backend</h1>
-      <p class="lead" data-en="I build pipelines, APIs and automations for operations that rely on ERP records, spreadsheets, XML and PDFs.">Desenvolvo pipelines, APIs e automações para operações que dependem de dados de ERP, planilhas, XML e PDFs.</p>
+      <p class="lead" data-en="I build data pipelines, APIs and automations for billing and logistics, with a focus on data quality and traceability.">Desenvolvo pipelines de dados, APIs e automações para operações de faturamento e logística, com foco em qualidade dos dados e rastreabilidade.</p>
       <div class="actions">
         <a class="button primary" href="#projects" data-en="Explore projects →">Ver projetos →</a>
         <a class="button" href="KevinSouzaCV.pdf" download data-en="Download CV ↓">Baixar currículo ↓</a>
@@ -123,36 +158,100 @@ dd{margin:0;text-align:right;font-weight:650}
       <h2 id="projects-title" data-en="Selected projects">Projetos selecionados</h2>
       <p data-en="From collecting and validating data to making it available through APIs and reports.">Da coleta e validação à entrega dos dados via APIs e relatórios.</p>
     </div>
-    <div class="cards">
-      <article class="card project">
-        <p class="category">ETL / API REST</p>
-        <h3>Steam Data Pipeline</h3>
-        <p data-en="Collects public Steam data, transforms it with pandas, stores it in PostgreSQL and exposes it through a FastAPI API with automated tests.">Coleta dados públicos da Steam, transforma com pandas, grava no PostgreSQL e disponibiliza os dados via FastAPI, com testes automatizados.</p>
-        <ul class="tags"><li>Python</li><li>pandas</li><li>FastAPI</li><li>PostgreSQL</li><li>Docker</li></ul>
-        <a href="https://github.com/KevinL284/steam_data_pipeline" data-en="View Steam repository ↗">Ver repositório do Steam Pipeline ↗</a>
-      </article>
-      <article class="card project">
-        <p class="category" data-en="DATA VALIDATION / E-INVOICING">VALIDAÇÃO DE DADOS / FISCAL</p>
-        <h3>Conferência XML</h3>
-        <p data-en="Audits Brazilian electronic invoices and returns by checking fiscal operation codes, item identifiers and references to original invoices.">Auditoria de NF-e e devoluções com conferência de CFOP, identificadores de produtos e referências às notas de origem.</p>
-        <ul class="tags"><li>Python</li><li>Flask</li><li>XML</li><li>NF-e</li></ul>
-        <a href="https://github.com/KevinL284/conferencia-xml" data-en="View Conferência XML repository ↗">Ver repositório do Conferência XML ↗</a>
-      </article>
-      <article class="card project">
-        <p class="category" data-en="DOCUMENT PROCESSING / OCR">PROCESSAMENTO DOCUMENTAL / OCR</p>
-        <h3 data-en="International Acts Pipeline">Pipeline de Atos Internacionais</h3>
-        <p data-en="Extracts text and structured information from PDFs, using OCR for scanned pages.">Extrai texto e informações estruturadas de PDFs, com OCR para páginas digitalizadas.</p>
-        <ul class="tags"><li>Python</li><li>PyMuPDF</li><li>EasyOCR</li></ul>
-        <a href="https://github.com/KevinL284/Pdf-AtosInternacionais-pipeline" data-en="View PDF pipeline repository ↗">Ver repositório do pipeline de PDFs ↗</a>
-      </article>
-      <article class="card project">
-        <p class="category" data-en="ACADEMIC RESEARCH / MACHINE LEARNING">PESQUISA ACADÊMICA / MACHINE LEARNING</p>
-        <h3>BaseDeHits</h3>
-        <p data-en="Explores audio features and predictive models for music analysis.">Explora características de áudio e modelos preditivos para análise musical.</p>
-        <ul class="tags"><li>Python</li><li>pandas</li><li>Machine Learning</li></ul>
-        <a href="https://github.com/KevinL284/BaseDeHitsDF" data-en="View BaseDeHits repository ↗">Ver repositório do BaseDeHits ↗</a>
-      </article>
+    <div class="filters" role="group" aria-label="Filtrar projetos" data-label-en="Filter projects">
+      <button type="button" class="control" data-filter="all" aria-pressed="true" data-en="All">Todos</button><button type="button" class="control" data-filter="data" aria-pressed="false" data-en="Data &amp; AI">Dados e IA</button><button type="button" class="control" data-filter="backend" aria-pressed="false" data-en="Backend">Backend</button>
     </div>
+    <div class="cards"><article class="card project" data-category="backend data">
+  <button type="button" class="project-open" data-dialog="project-1" aria-labelledby="project-title-1" aria-haspopup="dialog"><img src="src/assets/images/projects/steampipeline.jpg" alt="" loading="lazy"><span aria-hidden="true">↗</span></button>
+  <div class="project-body"><p class="category">2026</p><h3 id="project-title-1" data-en="Steam Data Pipeline API">Steam Data Pipeline API</h3><p data-en="ETL pipeline and REST API for public Steam data.">Pipeline ETL e API REST em Python para consumo, transformação e exposição de dados públicos da Steam.</p><ul class="tags"><li>Python</li><li>FastAPI</li><li>Pandas</li><li>PostgreSQL</li><li>SQLAlchemy</li><li>Docker</li><li>Pytest</li><li>GitHub Actions</li></ul>
+  <button type="button" class="details-button" data-dialog="project-1" aria-haspopup="dialog" data-en="View details ↗">Ver detalhes ↗</button>
+  </div>
+ </article>
+ <dialog id="project-1" aria-labelledby="dialog-title-1"><div class="dialog-wrap">
+   <form method="dialog" class="dialog-close"><button class="control" autofocus data-en="Close ×">Fechar ×</button></form>
+   <h3 id="dialog-title-1" data-en="Steam Data Pipeline API">Steam Data Pipeline API</h3><div class="dialog-cover"><img src="src/assets/images/projects/steampipeline.jpg" alt="" loading="lazy"></div>
+   <p data-en="Collects public Steam data, transforms it with pandas, stores it in PostgreSQL and serves it through FastAPI. The project includes a layered architecture, Docker, automated testing, logging and GitHub Actions.">Projeto pessoal que combina Backend Python, Engenharia de Dados e APIs REST. A aplicação consome dados públicos da Steam, transforma os dados com Pandas, persiste as informações em banco relacional e expõe endpoints com FastAPI. O projeto também utiliza arquitetura em camadas, Repository Pattern, Service Layer, Docker, testes automatizados, logging e CI/CD com GitHub Actions.</p>
+   <h4 data-en="Features">Funcionalidades</h4><ul><li data-en="Public Steam data extraction">Extração de dados públicos da Steam</li><li data-en="Layered ETL pipeline">Pipeline ETL com camadas separadas</li><li data-en="FastAPI REST API">API REST com FastAPI</li><li data-en="Repository and service layers">Repository Pattern e Service Layer</li><li data-en="PostgreSQL storage">Persistência em PostgreSQL</li><li data-en="Docker and Docker Compose">Execução com Docker e Docker Compose</li><li data-en="Automated pytest tests">Testes automatizados com Pytest</li><li data-en="CI/CD with GitHub Actions">Workflow de CI/CD com GitHub Actions</li></ul>
+   <ul class="tags"><li>Python</li><li>FastAPI</li><li>Pandas</li><li>PostgreSQL</li><li>SQLAlchemy</li><li>Docker</li><li>Pytest</li><li>GitHub Actions</li></ul><div class="links"><a href="https://github.com/KevinL284/steam_data_pipeline" data-en="View repository ↗">Ver repositório ↗</a></div>
+ </div></dialog>
+<article class="card project" data-category="backend data">
+  <button type="button" class="project-open" data-dialog="project-7" aria-labelledby="project-title-7" aria-haspopup="dialog"><div class="cover-graphic"><svg viewBox="0 0 680 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke="currentColor"><path d="M-20 286 L102 230 182 278 268 160 378 196 474 102 601 145 710 52 M102 230 L61 111 191 52 268 160 331 55 474 102 553 25 601 145 635 282 474 102 M182 278 L352 324 378 196 521 267 635 282 M61 111 L-20 67 M331 55 L378 196 M521 267 L601 145"/></g><g fill="currentColor"><circle cx="102" cy="230" r="5"/><circle cx="182" cy="278" r="3"/><circle cx="268" cy="160" r="3"/><circle cx="378" cy="196" r="5"/><circle cx="474" cy="102" r="3"/><circle cx="601" cy="145" r="3"/><circle cx="61" cy="111" r="5"/><circle cx="191" cy="52" r="3"/><circle cx="331" cy="55" r="3"/><circle cx="553" cy="25" r="5"/><circle cx="635" cy="282" r="3"/><circle cx="352" cy="324" r="3"/><circle cx="521" cy="267" r="5"/></g></svg><span>&lt;NF-e /&gt;</span></div><span aria-hidden="true">↗</span></button>
+  <div class="project-body"><p class="category">2026</p><h3 id="project-title-7" data-en="Conferência XML">Conferência XML</h3><p data-en="Electronic invoice and returns auditing.">Auditoria de NF-e e devoluções com validação de regras fiscais.</p><ul class="tags"><li>Python</li><li>Flask</li><li>XML</li><li>NF-e</li></ul>
+  <button type="button" class="details-button" data-dialog="project-7" aria-haspopup="dialog" data-en="View details ↗">Ver detalhes ↗</button>
+  </div>
+ </article>
+ <dialog id="project-7" aria-labelledby="dialog-title-7"><div class="dialog-wrap">
+   <form method="dialog" class="dialog-close"><button class="control" autofocus data-en="Close ×">Fechar ×</button></form>
+   <h3 id="dialog-title-7" data-en="Conferência XML">Conferência XML</h3><div class="dialog-cover"><div class="cover-graphic"><svg viewBox="0 0 680 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke="currentColor"><path d="M-20 286 L102 230 182 278 268 160 378 196 474 102 601 145 710 52 M102 230 L61 111 191 52 268 160 331 55 474 102 553 25 601 145 635 282 474 102 M182 278 L352 324 378 196 521 267 635 282 M61 111 L-20 67 M331 55 L378 196 M521 267 L601 145"/></g><g fill="currentColor"><circle cx="102" cy="230" r="5"/><circle cx="182" cy="278" r="3"/><circle cx="268" cy="160" r="3"/><circle cx="378" cy="196" r="5"/><circle cx="474" cy="102" r="3"/><circle cx="601" cy="145" r="3"/><circle cx="61" cy="111" r="5"/><circle cx="191" cy="52" r="3"/><circle cx="331" cy="55" r="3"/><circle cx="553" cy="25" r="5"/><circle cx="635" cy="282" r="3"/><circle cx="352" cy="324" r="3"/><circle cx="521" cy="267" r="5"/></g></svg><span>&lt;NF-e /&gt;</span></div></div>
+   <p data-en="Audits Brazilian electronic invoices and returns by checking fiscal codes, item identifiers and references to original invoices.">Confere códigos de operação fiscal, identificadores de produtos e referências às notas de origem em operações de devolução.</p>
+   <h4 data-en="Features">Funcionalidades</h4><ul><li data-en="Fiscal operation code validation">Validação de CFOP</li><li data-en="Product identifier checks">Conferência de identificadores de produtos</li><li data-en="References to original invoices">Conferência de referências às notas de origem</li></ul>
+   <ul class="tags"><li>Python</li><li>Flask</li><li>XML</li><li>NF-e</li></ul><div class="links"><a href="https://github.com/KevinL284/conferencia-xml" data-en="View repository ↗">Ver repositório ↗</a></div>
+ </div></dialog>
+<article class="card project" data-category="data">
+  <button type="button" class="project-open" data-dialog="project-5" aria-labelledby="project-title-5" aria-haspopup="dialog"><img src="src/assets/images/projects/meutcc.jpg" alt="" loading="lazy"><span aria-hidden="true">↗</span></button>
+  <div class="project-body"><p class="category">2025</p><h3 id="project-title-5" data-en="International Acts PDF Pipeline">Pipeline de Atos Internacionais em PDF</h3><p data-en="Extracts and analyses information from international acts in PDF format.">Pipeline de extração e análise de informações em documentos PDF usando IA generativa, regex, NER léxico e modelos de linguagem.</p><ul class="tags"><li>Python</li><li>NLP</li><li>PDF</li><li>spaCy</li><li>Regex</li><li>BERT</li><li>Gemini</li><li data-en="Generative AI">IA Generativa</li></ul>
+  <button type="button" class="details-button" data-dialog="project-5" aria-haspopup="dialog" data-en="View details ↗">Ver detalhes ↗</button>
+  </div>
+ </article>
+ <dialog id="project-5" aria-labelledby="dialog-title-5"><div class="dialog-wrap">
+   <form method="dialog" class="dialog-close"><button class="control" autofocus data-en="Close ×">Fechar ×</button></form>
+   <h3 id="dialog-title-5" data-en="International Acts PDF Pipeline">Pipeline de Atos Internacionais em PDF</h3><div class="dialog-cover"><img src="src/assets/images/projects/meutcc.jpg" alt="" loading="lazy"></div>
+   <p data-en="Final-year research project comparing regex, lexical named-entity recognition and generative language models for extracting relevant information from complex documents.">Projeto desenvolvido como trabalho de conclusão de curso, com foco em leitura, extração e análise de informações em documentos de atos internacionais. A pipeline explora múltiplas abordagens para capturar palavras-chave e informações relevantes em textos complexos, combinando IA generativa, regex, NER léxico com spaCy e experimentos com modelos como Gemini, Perplexity e BERT.</p>
+   <h4 data-en="Features">Funcionalidades</h4><ul><li data-en="Batch PDF processing">Leitura e processamento de múltiplos PDFs</li><li data-en="Keyword extraction">Extração de palavras-chave em documentos complexos</li><li data-en="Regex-based matching">Uso de regex para padrões textuais</li><li data-en="Lexical NER with spaCy">NER léxico com spaCy</li><li data-en="Generative AI experiments">Exploração com IA generativa</li><li data-en="Experiments with Gemini, Perplexity and BERT">Experimentos com Gemini, Perplexity e BERT</li><li data-en="Research on international acts">Aplicação acadêmica em atos internacionais</li></ul>
+   <ul class="tags"><li>Python</li><li>NLP</li><li>PDF</li><li>spaCy</li><li>Regex</li><li>BERT</li><li>Gemini</li><li data-en="Generative AI">IA Generativa</li></ul><div class="links"><a href="https://github.com/KevinL284/Pdf-AtosInternacionais-pipeline" data-en="View repository ↗">Ver repositório ↗</a><a href="https://repositorio.animaeducacao.com.br/items/089e3aac-acbc-4d33-a1db-80dce216292e" data-en="Read research paper ↗">Ler trabalho acadêmico ↗</a></div>
+ </div></dialog>
+<article class="card project" data-category="data">
+  <button type="button" class="project-open" data-dialog="project-3" aria-labelledby="project-title-3" aria-haspopup="dialog"><img src="src/assets/images/projects/BHresults8.png" alt="" loading="lazy"><span aria-hidden="true">↗</span></button>
+  <div class="project-body"><p class="category">2024</p><h3 id="project-title-3" data-en="BaseDeHits — Predictive Music Analysis">BaseDeHits - Análise Preditiva Musical</h3><p data-en="Predictive analysis and segmentation of music data.">Projeto de análise preditiva e segmentação de dados musicais utilizando modelos supervisionados e não supervisionados.</p><ul class="tags"><li>Python</li><li>Machine Learning</li><li>Pandas</li><li>Scikit-learn</li></ul>
+  <button type="button" class="details-button" data-dialog="project-3" aria-haspopup="dialog" data-en="View details ↗">Ver detalhes ↗</button>
+  </div>
+ </article>
+ <dialog id="project-3" aria-labelledby="dialog-title-3"><div class="dialog-wrap">
+   <form method="dialog" class="dialog-close"><button class="control" autofocus data-en="Close ×">Fechar ×</button></form>
+   <h3 id="dialog-title-3" data-en="BaseDeHits — Predictive Music Analysis">BaseDeHits - Análise Preditiva Musical</h3><div class="dialog-cover"><img src="src/assets/images/projects/BHresults8.png" alt="" loading="lazy"></div>
+   <p data-en="Academic project that uses supervised and unsupervised learning to explore patterns in music datasets.">Projeto acadêmico de ciência de dados aplicado à análise musical, utilizando técnicas de machine learning para classificação, segmentação e exploração de padrões em bases musicais.</p>
+   <h4 data-en="Features">Funcionalidades</h4><ul><li data-en="Exploratory music data analysis">Análise exploratória de dados musicais</li><li data-en="Supervised models">Modelos supervisionados</li><li data-en="Unsupervised models">Modelos não supervisionados</li><li data-en="Music pattern segmentation">Segmentação de padrões musicais</li><li data-en="Results visualization">Visualização de resultados</li></ul>
+   <ul class="tags"><li>Python</li><li>Machine Learning</li><li>Pandas</li><li>Scikit-learn</li></ul><div class="links"><a href="https://github.com/KevinL284/BaseDeHitsDF" data-en="View repository ↗">Ver repositório ↗</a></div>
+ </div></dialog>
+<article class="card project" data-category="backend">
+  <button type="button" class="project-open" data-dialog="project-2" aria-labelledby="project-title-2" aria-haspopup="dialog"><img src="src/assets/images/projects/CostPilotLogo.png" alt="" loading="lazy"><span aria-hidden="true">↗</span></button>
+  <div class="project-body"><p class="category">2025</p><h3 id="project-title-2" data-en="CostPilot — Pricing Calculator">CostPilot - Calculadora de Preços Inteligente</h3><p data-en="Web application for margin-based pricing and scenario analysis.">Sistema web para cálculo de preços com margem de lucro, simulações polinomiais e dashboard interativo.</p><ul class="tags"><li>PHP</li><li>MySQL</li><li>JavaScript</li><li>HTML</li><li>CSS</li></ul>
+  <button type="button" class="details-button" data-dialog="project-2" aria-haspopup="dialog" data-en="View details ↗">Ver detalhes ↗</button>
+  </div>
+ </article>
+ <dialog id="project-2" aria-labelledby="dialog-title-2"><div class="dialog-wrap">
+   <form method="dialog" class="dialog-close"><button class="control" autofocus data-en="Close ×">Fechar ×</button></form>
+   <h3 id="dialog-title-2" data-en="CostPilot — Pricing Calculator">CostPilot - Calculadora de Preços Inteligente</h3><div class="dialog-cover"><img src="src/assets/images/projects/CostPilotLogo.png" alt="" loading="lazy"></div>
+   <p data-en="A pricing tool for simulating prices, profit margins and business scenarios with an interactive dashboard.">Aplicação web voltada para apoio à precificação, permitindo simulações de preço, margem de lucro e análise de cenários para tomada de decisão.</p>
+   <h4 data-en="Features">Funcionalidades</h4><ul><li data-en="Margin-based pricing">Cálculo de preços com margem de lucro</li><li data-en="Scenario simulation">Simulações de cenários</li><li data-en="Interactive dashboard">Dashboard interativo</li><li data-en="Relational database storage">Persistência em banco relacional</li></ul>
+   <ul class="tags"><li>PHP</li><li>MySQL</li><li>JavaScript</li><li>HTML</li><li>CSS</li></ul><div class="links"></div>
+ </div></dialog>
+<article class="card project" data-category="backend data">
+  <button type="button" class="project-open" data-dialog="project-4" aria-labelledby="project-title-4" aria-haspopup="dialog"><div class="cover-graphic"><svg viewBox="0 0 680 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke="currentColor"><path d="M-20 286 L102 230 182 278 268 160 378 196 474 102 601 145 710 52 M102 230 L61 111 191 52 268 160 331 55 474 102 553 25 601 145 635 282 474 102 M182 278 L352 324 378 196 521 267 635 282 M61 111 L-20 67 M331 55 L378 196 M521 267 L601 145"/></g><g fill="currentColor"><circle cx="102" cy="230" r="5"/><circle cx="182" cy="278" r="3"/><circle cx="268" cy="160" r="3"/><circle cx="378" cy="196" r="5"/><circle cx="474" cy="102" r="3"/><circle cx="601" cy="145" r="3"/><circle cx="61" cy="111" r="5"/><circle cx="191" cy="52" r="3"/><circle cx="331" cy="55" r="3"/><circle cx="553" cy="25" r="5"/><circle cx="635" cy="282" r="3"/><circle cx="352" cy="324" r="3"/><circle cx="521" cy="267" r="5"/></g></svg><span>NLP</span></div><span aria-hidden="true">↗</span></button>
+  <div class="project-body"><p class="category">2026</p><h3 id="project-title-4" data-en="Email Classifier">Email Classificador NLP</h3><p data-en="NLP email classification and AI-assisted reply drafting.">Classificador binário de e-mails com NLP, pesos por critérios e geração automática de resposta com IA generativa.</p><ul class="tags"><li>Python</li><li>NLP</li><li data-en="Generative AI">IA Generativa</li><li>Prompt Engineering</li><li>Text Classification</li><li>Automation</li></ul>
+  <button type="button" class="details-button" data-dialog="project-4" aria-haspopup="dialog" data-en="View details ↗">Ver detalhes ↗</button>
+  </div>
+ </article>
+ <dialog id="project-4" aria-labelledby="dialog-title-4"><div class="dialog-wrap">
+   <form method="dialog" class="dialog-close"><button class="control" autofocus data-en="Close ×">Fechar ×</button></form>
+   <h3 id="dialog-title-4" data-en="Email Classifier">Email Classificador NLP</h3><div class="dialog-cover"><div class="cover-graphic"><svg viewBox="0 0 680 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke="currentColor"><path d="M-20 286 L102 230 182 278 268 160 378 196 474 102 601 145 710 52 M102 230 L61 111 191 52 268 160 331 55 474 102 553 25 601 145 635 282 474 102 M182 278 L352 324 378 196 521 267 635 282 M61 111 L-20 67 M331 55 L378 196 M521 267 L601 145"/></g><g fill="currentColor"><circle cx="102" cy="230" r="5"/><circle cx="182" cy="278" r="3"/><circle cx="268" cy="160" r="3"/><circle cx="378" cy="196" r="5"/><circle cx="474" cy="102" r="3"/><circle cx="601" cy="145" r="3"/><circle cx="61" cy="111" r="5"/><circle cx="191" cy="52" r="3"/><circle cx="331" cy="55" r="3"/><circle cx="553" cy="25" r="5"/><circle cx="635" cy="282" r="3"/><circle cx="352" cy="324" r="3"/><circle cx="521" cy="267" r="5"/></g></svg><span>NLP</span></div></div>
+   <p data-en="Classifies emails using weighted criteria and drafts suggested replies with generative AI.">Aplicação voltada à classificação de e-mails como produtivos ou improdutivos utilizando técnicas de NLP, critérios ponderados e engenharia de prompt. Além da classificação binária, o sistema gera uma sugestão de resposta com apoio de IA generativa, aproximando automação textual, processamento de linguagem natural e lógica aplicada ao contexto de comunicação profissional.</p>
+   <h4 data-en="Features">Funcionalidades</h4><ul><li data-en="Binary email classification">Classificação binária de e-mails</li><li data-en="Weighted decision criteria">Uso de critérios ponderados para decisão</li><li data-en="Natural language processing">Processamento de linguagem natural</li><li data-en="Automatic reply suggestions">Geração automática de resposta</li><li data-en="Applied prompt engineering">Engenharia de prompt aplicada</li><li data-en="Text workflow automation">Automação de fluxo textual</li></ul>
+   <ul class="tags"><li>Python</li><li>NLP</li><li data-en="Generative AI">IA Generativa</li><li>Prompt Engineering</li><li>Text Classification</li><li>Automation</li></ul><div class="links"><a href="https://github.com/KevinL284/EmailClassificadorNLP" data-en="View repository ↗">Ver repositório ↗</a></div>
+ </div></dialog>
+<article class="card project" data-category="data">
+  <button type="button" class="project-open" data-dialog="project-6" aria-labelledby="project-title-6" aria-haspopup="dialog"><img src="src/assets/images/projects/eobatman.jpg" alt="" loading="lazy"><span aria-hidden="true">↗</span></button>
+  <div class="project-body"><p class="category">2025</p><h3 id="project-title-6" data-en="Is Batman? — Image Classifier">Is Batman? - Classificador de Imagens</h3><p data-en="Computer vision experiment in binary image classification.">Projeto simples de visão computacional para classificação binária de imagens entre Batman e não-Batman.</p><ul class="tags"><li>Python</li><li>Computer Vision</li><li>Machine Learning</li><li>Image Classification</li><li>Jupyter Notebook</li></ul>
+  <button type="button" class="details-button" data-dialog="project-6" aria-haspopup="dialog" data-en="View details ↗">Ver detalhes ↗</button>
+  </div>
+ </article>
+ <dialog id="project-6" aria-labelledby="dialog-title-6"><div class="dialog-wrap">
+   <form method="dialog" class="dialog-close"><button class="control" autofocus data-en="Close ×">Fechar ×</button></form>
+   <h3 id="dialog-title-6" data-en="Is Batman? — Image Classifier">Is Batman? - Classificador de Imagens</h3><div class="dialog-cover"><img src="src/assets/images/projects/eobatman.jpg" alt="" loading="lazy"></div>
+   <p data-en="A Jupyter Notebook experiment covering dataset preparation, training, evaluation and inference using a small image dataset.">Projeto experimental desenvolvido em Jupyter Notebook com foco em visão computacional e classificação binária de imagens. A proposta foi treinar modelos utilizando um pequeno conjunto de imagens para identificar se uma imagem representa ou não o Batman, explorando conceitos práticos de preparação de dados, treinamento, avaliação e inferência em modelos de classificação visual.</p>
+   <h4 data-en="Features">Funcionalidades</h4><ul><li data-en="Binary image classification">Classificação binária de imagens</li><li data-en="Training with a custom dataset">Treinamento de modelos com dataset próprio</li><li data-en="Batman and non-Batman classes">Separação entre imagens Batman e não-Batman</li><li data-en="Jupyter Notebook experiments">Experimentos em Jupyter Notebook</li><li data-en="Computer vision model evaluation">Avaliação prática de modelos de visão computacional</li></ul>
+   <ul class="tags"><li>Python</li><li>Computer Vision</li><li>Machine Learning</li><li>Image Classification</li><li>Jupyter Notebook</li></ul><div class="links"><a href="https://github.com/KevinL284/isbatman" data-en="View repository ↗">Ver repositório ↗</a></div>
+ </div></dialog></div>
   </section>
 
   <section class="section" id="experience" aria-labelledby="experience-title">
@@ -184,12 +283,22 @@ dd{margin:0;text-align:right;font-weight:650}
   </section>
 
   <section class="section contact" id="contact" aria-labelledby="contact-title">
-    <div><h2 id="contact-title" data-en="Get in touch">Vamos conversar</h2><p class="lead" data-en="Data engineering, backend development and automation.">Engenharia de dados, desenvolvimento backend e automação.</p></div>
-    <div class="actions">
-      <a class="button primary" href="mailto:kevin.lucas284sz@gmail.com" data-en="Email ↗">E-mail ↗</a>
-      <a class="button" href="https://www.linkedin.com/in/kevin-souza-471791236/">LinkedIn ↗</a>
-      <a class="button" href="https://github.com/KevinL284">GitHub ↗</a>
+    <div>
+      <h2 id="contact-title" data-en="Get in touch">Vamos conversar</h2>
+      <p class="lead" data-en="For opportunities, projects or partnerships, email me or use the form.">Para oportunidades, projetos ou parcerias, fale comigo por e-mail ou use o formulário.</p>
+      <a class="email-link" href="mailto:kevin.lucas284sz@gmail.com">kevin.lucas284sz@gmail.com</a>
+      <div class="actions"><a class="button" href="https://www.linkedin.com/in/kevin-souza-471791236/">LinkedIn ↗</a><a class="button" href="https://github.com/KevinL284">GitHub ↗</a></div>
     </div>
+    <form class="card contact-form" action="https://getform.io/f/bllqjrdb" method="post">
+      <input type="text" name="_gotcha" hidden tabindex="-1" autocomplete="off">
+      <div class="form-row">
+        <label><span data-en="Your name">Seu nome</span><input name="name" autocomplete="name" required></label>
+        <label><span data-en="Your email">Seu e-mail</span><input type="email" name="email" autocomplete="email" required></label>
+      </div>
+      <label><span data-en="Subject">Assunto</span><input name="subject" required></label>
+      <label><span data-en="Message">Mensagem</span><textarea name="message" rows="5" required></textarea></label>
+      <button type="submit" class="button primary" data-en="Send message">Enviar mensagem</button>
+    </form>
   </section>
 </main>
 <footer class="footer"><div class="wrap"><p>Kevin Souza · João Pessoa, PB</p><div class="links"><a href="https://wa.me/5583999380246">WhatsApp</a><a href="#home" data-en="Back to top ↑">Voltar ao topo ↑</a></div></div></footer>
@@ -236,6 +345,26 @@ language.addEventListener('click', () => {
   savePreference('kevin-language', english ? 'en' : 'pt-BR');
   setLanguage(english);
 });
+const filters = [...document.querySelectorAll('[data-filter]')];
+const projectCards = [...document.querySelectorAll('[data-category]')];
+for (const filter of filters) {
+  filter.addEventListener('click', () => {
+    for (const option of filters) option.setAttribute('aria-pressed', String(option === filter));
+    const category = filter.dataset.filter;
+    for (const card of projectCards) {
+      card.hidden = category !== 'all' && !card.dataset.category.split(' ').includes(category);
+    }
+  });
+}
+
+for (const trigger of document.querySelectorAll('[data-dialog]')) {
+  trigger.addEventListener('click', () => {
+    const dialog = document.getElementById(trigger.dataset.dialog);
+    dialog.showModal();
+    dialog.addEventListener('close', () => trigger.focus(), { once: true });
+  });
+}
+
 let english = false;
 try { english = localStorage.getItem('kevin-language') === 'en'; } catch {}
 setLanguage(english);
