@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule ^(projetos|experiencia|stack|servicos|publicacoes|contato)/?$ index.html [L]
