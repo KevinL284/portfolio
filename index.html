@@ -188,6 +188,36 @@ html:has(dialog[open]) { overflow: hidden; }
 @media(prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; }
 }
+
+/* Contact channels */
+.contact-links { display: grid; gap: .55rem; list-style: none; padding: 0; margin: 1.25rem 0 0; }
+.contact-link {
+  display: grid; grid-template-columns: auto minmax(0,1fr) auto; align-items: center; gap: .75rem;
+  min-height: 68px; padding: .58rem .8rem; background: var(--surface); color: var(--ink);
+  border: 1px solid var(--line); border-radius: .7rem; text-decoration: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+.contact-email { --channel: #af382d; --pulse: #ea6659; }
+.contact-whatsapp { --channel: #087149; --pulse: #38d785; }
+.contact-linkedin { --channel: #09569e; --pulse: #449ef4; }
+.contact-github { --channel: #6841a7; --pulse: #ad82fd; }
+[data-theme=dark] .contact-link { --channel: var(--pulse); }
+.contact-icon {
+  display: grid; place-items: center; width: 42px; height: 42px; border-radius: .55rem;
+  color: var(--channel); background: var(--wash);
+  background: color-mix(in srgb, var(--channel) 13%, var(--surface));
+}
+.contact-link-text { display: grid; line-height: 1.35; overflow-wrap: anywhere; }
+.contact-link-text > span { color: var(--muted); font-size: .85rem; }
+.contact-arrow { color: var(--channel); }
+.contact-link:is(:hover, :focus-visible) { border-color: var(--channel); box-shadow: 0 0 18px -13px var(--pulse); }
+@media (prefers-reduced-motion: no-preference) {
+  .contact-link:is(:hover, :focus-visible) .contact-icon { animation: contact-glow .9s ease-in-out 2; }
+  @keyframes contact-glow {
+    0%, 100% { box-shadow: 0 0 0 transparent; }
+    50% { box-shadow: 0 0 14px -2px var(--pulse); }
+  }
+}
 </style>
 </head>
 <body>
@@ -366,8 +396,28 @@ html:has(dialog[open]) { overflow: hidden; }
     <div>
       <h2 id="contact-title" data-en="Get in touch">Vamos conversar</h2>
       <p class="lead" data-en="For opportunities, projects or partnerships, email me or use the form.">Para oportunidades, projetos ou parcerias, fale comigo por e-mail ou use o formulário.</p>
-      <a class="email-link" href="mailto:kevin.lucas284sz@gmail.com">kevin.lucas284sz@gmail.com</a>
-      <div class="actions"><a class="button" href="https://www.linkedin.com/in/kevin-souza-471791236/">LinkedIn ↗</a><a class="button" href="https://github.com/KevinL284">GitHub ↗</a></div>
+      <ul class="contact-links">
+        <li><a class="contact-link contact-email" href="mailto:kevin.lucas284sz@gmail.com">
+          <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></span>
+          <span class="contact-link-text"><strong data-en="Email">E-mail</strong><span>kevin.lucas284sz@gmail.com</span></span>
+          <span class="contact-arrow" aria-hidden="true">↗</span>
+        </a></li>
+        <li><a class="contact-link contact-whatsapp" href="https://wa.me/5583999380246" target="_blank" rel="noopener noreferrer">
+          <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 17.5 3 21l3.8-1.2a9 9 0 1 0-2.3-2.3Z"/><path d="M8 8.5c.1 3.1 2.4 5.4 5.5 6.5 1 .3 2-.1 2.5-1l.3-.5-2.5-1.3-.8.8a7 7 0 0 1-2.4-2.4l.7-.8-1.2-2.5-.6.2C8.6 7.7 8 8 8 8.5Z"/></svg></span>
+          <span class="contact-link-text"><strong>WhatsApp</strong><span>+55 (83) 99938-0246</span></span>
+          <span class="contact-arrow" aria-hidden="true">↗</span>
+        </a></li>
+        <li><a class="contact-link contact-linkedin" href="https://www.linkedin.com/in/kevin-souza-471791236/" target="_blank" rel="noopener noreferrer">
+          <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 11v5m0-8v.01M12 16v-5m0 2a2 2 0 0 1 4 0v3"/></svg></span>
+          <span class="contact-link-text"><strong>LinkedIn</strong><span>Kevin Souza</span></span>
+          <span class="contact-arrow" aria-hidden="true">↗</span>
+        </a></li>
+        <li><a class="contact-link contact-github" href="https://github.com/KevinL284" target="_blank" rel="noopener noreferrer">
+          <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4 1-4-2-6-2m12 4v-3.5a3 3 0 0 0-.8-2.3c2.6-.3 5.3-1.3 5.3-6a4.7 4.7 0 0 0-1.3-3.3 4.3 4.3 0 0 0-.1-3.3S17 2.3 15 4a12 12 0 0 0-6 0C7 2.3 5.9 2.6 5.9 2.6a4.3 4.3 0 0 0-.1 3.3 4.7 4.7 0 0 0-1.3 3.3c0 4.7 2.7 5.7 5.3 6A3 3 0 0 0 9 17.5V21"/></svg></span>
+          <span class="contact-link-text"><strong>GitHub</strong><span>@KevinL284</span></span>
+          <span class="contact-arrow" aria-hidden="true">↗</span>
+        </a></li>
+      </ul>
     </div>
     <form class="card contact-form" action="https://getform.io/f/bllqjrdb" method="post">
       <input type="text" name="_gotcha" hidden tabindex="-1" autocomplete="off">
