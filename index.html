@@ -2,6 +2,8 @@
 <html lang="pt-BR" data-theme="light">
 <head>
 <meta charset="utf-8">
+<base href="/">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2048%2048%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%3E%0A%20%20%3Crect%20width%3D%2248%22%20height%3D%2248%22%20rx%3D%2211%22%20fill%3D%22%23123262%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M13%2012v24m0-12h9l13-12M22%2024l13%2012%22%20stroke%3D%22%23a9cafa%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2213%22%20cy%3D%2212%22%20r%3D%223%22%20fill%3D%22%23a9cafa%22%2F%3E%3Ccircle%20cx%3D%2213%22%20cy%3D%2236%22%20r%3D%223%22%20fill%3D%22%23a9cafa%22%2F%3E%3Ccircle%20cx%3D%2222%22%20cy%3D%2224%22%20r%3D%223.4%22%20fill%3D%22%23fff%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2235%22%20cy%3D%2212%22%20r%3D%223.4%22%20fill%3D%22%2366cfff%22%2F%3E%3Ccircle%20cx%3D%2235%22%20cy%3D%2236%22%20r%3D%223.4%22%20fill%3D%22%2366cfff%22%2F%3E%0A%3C%2Fsvg%3E">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Kevin Souza. Engenharia de dados, desenvolvimento backend e automação de operações.">
 <meta name="color-scheme" content="light dark">
@@ -261,19 +263,33 @@ html:has(dialog[open]) { overflow: hidden; }
   @keyframes preview-scan { from { transform: translateY(0); } to { transform: translateY(126px); } }
   @keyframes preview-check { from { opacity: .65; transform: scale(.8); } to { opacity: 0; transform: scale(1.23); } }
 }
+
+.brand-symbol { padding: 0; border: 0; background: transparent; }
+.brand-symbol svg { display: block; width: 100%; height: 100%; }
+.service-grid { margin-bottom: 1.2rem; grid-template-columns: repeat(3,minmax(0,1fr)); }
+.service-grid p { margin-bottom: 0; }
+nav a[aria-current="location"] { color: var(--accent); text-decoration: underline; text-underline-offset: .45rem; }
+@media (max-width: 960px) { .bar .wrap { column-gap: .85rem; } nav { gap: .75rem; } }
+@media (max-width: 760px) { .service-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
-<a class="skip" href="#main" data-en="Skip to content">Pular para o conteúdo</a>
+<a class="skip" href="/#main" data-en="Skip to content">Pular para o conteúdo</a>
 <header class="bar">
   <div class="wrap">
-    <a class="brand" href="#home"><span class="mark" aria-hidden="true">KS</span>Kevin Souza</a>
+    <a class="brand" href="/" data-route="home"><span class="mark brand-symbol" aria-hidden="true"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <rect width="48" height="48" rx="11" fill="#123262"/>
+  <path d="M13 12v24m0-12h9l13-12M22 24l13 12" stroke="#a9cafa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="13" cy="12" r="3" fill="#a9cafa"/><circle cx="13" cy="36" r="3" fill="#a9cafa"/><circle cx="22" cy="24" r="3.4" fill="#fff"/>
+  <circle cx="35" cy="12" r="3.4" fill="#66cfff"/><circle cx="35" cy="36" r="3.4" fill="#66cfff"/>
+</svg></span>Kevin Souza</a>
     <nav aria-label="Navegação principal" data-label-en="Main navigation">
-      <a href="#projects" data-en="Projects">Projetos</a>
-      <a href="#experience" data-en="Experience">Experiência</a>
-      <a href="#stack" data-en="Toolbox">Stack</a>
-      <a href="#writing" data-en="Writing">Publicações</a>
-      <a href="#contact" data-en="Contact">Contato</a>
+      <a href="/projetos" data-route="projects" data-en="Projects">Projetos</a>
+      <a href="/experiencia" data-route="experience" data-en="Experience">Experiência</a>
+      <a href="/stack" data-route="stack" data-en="Toolbox">Stack</a>
+      <a href="/servicos" data-route="services" data-en="Services">Serviços</a>
+      <a href="/publicacoes" data-route="writing" data-en="Writing">Publicações</a>
+      <a href="/contato" data-route="contact" data-en="Contact">Contato</a>
     </nav>
     <div class="controls">
       <button class="control" id="theme" type="button" aria-pressed="false"><span aria-hidden="true">◐</span><span id="theme-label">Escuro</span></button>
@@ -289,7 +305,7 @@ html:has(dialog[open]) { overflow: hidden; }
       <h1 id="hero-title" data-en="Data engineering & backend">Engenharia de dados &amp; backend</h1>
       <p class="lead" data-en="I build data pipelines, APIs and automations for billing and logistics, with a focus on data quality and traceability.">Desenvolvo pipelines de dados, APIs e automações para operações de faturamento e logística, com foco em qualidade dos dados e rastreabilidade.</p>
       <div class="actions">
-        <a class="button primary" href="#projects" data-en="Explore projects →">Ver projetos →</a>
+        <a class="button primary" href="/projetos" data-route="projects" data-en="Explore projects →">Ver projetos →</a>
         <a class="button" href="KevinSouzaCV.pdf" download data-en="Download CV ↓">Baixar currículo ↓</a>
       </div>
     </div>
@@ -464,6 +480,16 @@ html:has(dialog[open]) { overflow: hidden; }
     </div>
   </section>
 
+  <section class="section services" id="services" aria-labelledby="services-title">
+    <div class="section-heading"><h2 id="services-title" data-en="How I can help">Como posso te ajudar</h2>
+    <p data-en="Freelance work for teams that need to automate manual tasks, connect data sources or build internal tools.">Trabalho freelance para equipes que precisam automatizar tarefas manuais, conectar fontes de dados ou criar ferramentas internas.</p></div>
+    <div class="cards service-grid">
+      <article class="card"><h3 data-en="Process automation">Automação de processos</h3><p data-en="I automate recurring checks and extraction from XML or PDF. I can deliver an internal tool with validation rules, run logs and usage instructions.">Automatizo conferências recorrentes e extração de XML ou PDF. Posso entregar uma ferramenta interna com regras, registros de execução e instruções de uso.</p></article>
+      <article class="card"><h3 data-en="Data integration and reporting">Integração e relatórios</h3><p data-en="I integrate ERP exports, spreadsheets and APIs into structured datasets for billing, logistics and returns reporting.">Integro dados de ERP, planilhas e APIs em bases organizadas para relatórios de faturamento, logística e devoluções.</p></article>
+      <article class="card"><h3 data-en="APIs and internal tools">APIs e ferramentas internas</h3><p data-en="I build APIs and applications for submission, approval and lookup workflows, with documentation and tests for business rules.">Desenvolvo APIs e aplicações para fluxos como cadastro, aprovação e consulta, com documentação e testes das regras do negócio.</p></article>
+    </div>
+    <a class="button primary" href="/contato" data-route="contact" data-en="Discuss your project →">Conversar sobre teu projeto →</a>
+  </section>
   <section class="section writing" id="writing" aria-labelledby="writing-title">
     <div class="section-heading"><h2 id="writing-title" data-en="Writing">Publicações</h2></div>
     <ul class="cards writing-list" id="writing-list" hidden></ul>
@@ -510,7 +536,7 @@ html:has(dialog[open]) { overflow: hidden; }
     </form>
   </section>
 </main>
-<footer class="footer"><div class="wrap"><p>Kevin Souza · João Pessoa, PB</p><div class="links"><a href="https://wa.me/5583999380246">WhatsApp</a><a href="#home" data-en="Back to top ↑">Voltar ao topo ↑</a></div></div></footer>
+<footer class="footer"><div class="wrap"><p>Kevin Souza · João Pessoa, PB</p><div class="links"><a href="https://wa.me/5583999380246">WhatsApp</a><a href="/" data-route="home" data-en="Back to top ↑">Voltar ao topo ↑</a></div></div></footer>
 <script>
 const root = document.documentElement;
 const theme = document.querySelector('#theme');
@@ -632,6 +658,57 @@ loadWriting();
 let english = false;
 try { english = localStorage.getItem('kevin-language') === 'en'; } catch {}
 setLanguage(english);
+</script>
+<script>
+const routes = {"home":"/","projects":"/projetos","experience":"/experiencia","stack":"/stack","writing":"/publicacoes","contact":"/contato","services":"/servicos"};
+const primaryLinks = [...document.querySelectorAll('nav [data-route]')];
+
+function moveTo(id, behavior = 'instant', focus = false) {
+  const target = document.getElementById(id);
+  if (!target) return;
+  for (const link of primaryLinks) {
+    if (link.dataset.route === id) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  }
+  if (focus) {
+    const destination = target.querySelector('h1, h2') ?? target;
+    destination.setAttribute('tabindex', '-1');
+    destination.focus({ preventScroll: true });
+  }
+  if (id === 'home') window.scrollTo({ top: 0, behavior });
+  else target.scrollIntoView({ behavior, block: 'start' });
+}
+
+function routeFromLocation() {
+  const path = location.pathname.replace(/\/$/, '') || '/';
+  if (path === '/') {
+    const legacy = location.hash.slice(1);
+    if (legacy === 'main') return 'main';
+    if (Object.hasOwn(routes, legacy)) {
+      history.replaceState(null, '', routes[legacy] + location.search);
+      return legacy;
+    }
+  }
+  return Object.keys(routes).find(id => routes[id] === path);
+}
+
+for (const link of document.querySelectorAll('a[data-route]')) {
+  link.addEventListener('click', event => {
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    const id = link.dataset.route;
+    if (location.pathname !== routes[id] || location.hash) history.pushState(null, '', routes[id]);
+    moveTo(id, matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', true);
+  });
+}
+
+document.querySelector('.skip').addEventListener('click', event => {
+  event.preventDefault();
+  moveTo('main', 'instant', true);
+});
+addEventListener('popstate', () => moveTo(routeFromLocation()));
+const initialRoute = routeFromLocation();
+if (initialRoute && initialRoute !== 'home') requestAnimationFrame(() => moveTo(initialRoute));
 </script>
 </body>
 </html>
