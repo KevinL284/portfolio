@@ -244,6 +244,23 @@ html:has(dialog[open]) { overflow: hidden; }
   @keyframes soft-entry { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 }
 @media (prefers-reduced-motion: reduce) { .graph-pulse { display: none; } }
+
+.project-preview { display: grid; height: 100%; place-items: center; overflow: hidden; background: var(--wash); color: var(--accent); }
+.project-preview svg { display: block; width: 100%; height: 100%; }
+.preview-grid { opacity: .11; }
+.preview-panel { fill: var(--surface); }
+.preview-token { fill: #4589ef; }
+.preview-scan, .preview-check { stroke: #4589ef; }
+.preview-check { opacity: .35; }
+.private-project { color: var(--muted); font-size: .85rem; }
+@media (prefers-reduced-motion: no-preference) {
+  .preview-token { animation: preview-token 2.8s ease-in-out infinite; }
+  .preview-scan { animation: preview-scan 3s ease-in-out infinite alternate; }
+  .preview-check { animation: preview-check 3s ease-out infinite; transform-origin: center; transform-box: fill-box; }
+  @keyframes preview-token { 0%, 100% { opacity: 0; } 20%, 80% { opacity: 1; } 85%, 100% { transform: translateX(132px); } }
+  @keyframes preview-scan { from { transform: translateY(0); } to { transform: translateY(126px); } }
+  @keyframes preview-check { from { opacity: .65; transform: scale(.8); } to { opacity: 0; transform: scale(1.23); } }
+}
 </style>
 </head>
 <body>
@@ -324,17 +341,25 @@ html:has(dialog[open]) { overflow: hidden; }
    <ul class="tags"><li>Python</li><li>FastAPI</li><li>Pandas</li><li>PostgreSQL</li><li>SQLAlchemy</li><li>Docker</li><li>Pytest</li><li>GitHub Actions</li></ul><div class="links"><a href="https://github.com/KevinL284/steam_data_pipeline" data-en="View repository ↗">Ver repositório ↗</a></div>
  </div></dialog>
 <article class="card project" data-category="backend data">
-  <button type="button" class="project-open" data-dialog="project-7" aria-labelledby="project-title-7" aria-haspopup="dialog"><div class="cover-graphic"><svg viewBox="0 0 680 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke="currentColor"><path d="M-20 286 L102 230 182 278 268 160 378 196 474 102 601 145 710 52 M102 230 L61 111 191 52 268 160 331 55 474 102 553 25 601 145 635 282 474 102 M182 278 L352 324 378 196 521 267 635 282 M61 111 L-20 67 M331 55 L378 196 M521 267 L601 145"/></g><g fill="currentColor"><circle cx="102" cy="230" r="5"/><circle cx="182" cy="278" r="3"/><circle cx="268" cy="160" r="3"/><circle cx="378" cy="196" r="5"/><circle cx="474" cy="102" r="3"/><circle cx="601" cy="145" r="3"/><circle cx="61" cy="111" r="5"/><circle cx="191" cy="52" r="3"/><circle cx="331" cy="55" r="3"/><circle cx="553" cy="25" r="5"/><circle cx="635" cy="282" r="3"/><circle cx="352" cy="324" r="3"/><circle cx="521" cy="267" r="5"/></g></svg><span>&lt;NF-e /&gt;</span></div><span aria-hidden="true">↗</span></button>
+  <button type="button" class="project-open" data-dialog="project-7" aria-labelledby="project-title-7" aria-haspopup="dialog"><div class="project-preview project-preview-7"><svg viewBox="0 0 680 360" aria-hidden="true">
+  <g class="preview-grid" fill="none" stroke="currentColor"><path d="M0 90h680M0 180h680M0 270h680M85 0v360m85 0V0m85 0v360m85 0V0m85 0v360m85 0V0m85 0v360"/></g>
+  <g fill="none" stroke="currentColor" stroke-width="3"><path class="preview-panel" d="M107 75h141l48 48v162H107z"/><path d="M248 75v48h48m-130 36-19 17 19 17m70-34 19 17-19 17m-28-39-14 44m-48 35h109m-109 24h78M296 181h134"/><rect class="preview-panel" x="430" y="121" width="136" height="120" rx="24"/><path d="m465 181 23 22 43-45" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <path class="preview-scan" d="M124 139h154" stroke-width="3" stroke-linecap="round"/><circle class="preview-check" cx="498" cy="181" r="51" fill="none" stroke-width="2"/>
+</svg></div><span aria-hidden="true">↗</span></button>
   <div class="project-body"><p class="category">2026</p><h3 id="project-title-7" data-en="Conferência XML">Conferência XML</h3><p data-en="Electronic invoice and returns auditing.">Auditoria de NF-e e devoluções com validação de regras fiscais.</p><ul class="tags"><li>Python</li><li>Flask</li><li>XML</li><li>NF-e</li></ul>
   <button type="button" class="details-button" data-dialog="project-7" aria-haspopup="dialog" data-en="View details ↗">Ver detalhes ↗</button>
   </div>
  </article>
  <dialog id="project-7" aria-labelledby="dialog-title-7"><div class="dialog-wrap">
    <form method="dialog" class="dialog-close"><button class="control" autofocus data-en="Close ×">Fechar ×</button></form>
-   <h3 id="dialog-title-7" data-en="Conferência XML">Conferência XML</h3><div class="dialog-cover"><div class="cover-graphic"><svg viewBox="0 0 680 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke="currentColor"><path d="M-20 286 L102 230 182 278 268 160 378 196 474 102 601 145 710 52 M102 230 L61 111 191 52 268 160 331 55 474 102 553 25 601 145 635 282 474 102 M182 278 L352 324 378 196 521 267 635 282 M61 111 L-20 67 M331 55 L378 196 M521 267 L601 145"/></g><g fill="currentColor"><circle cx="102" cy="230" r="5"/><circle cx="182" cy="278" r="3"/><circle cx="268" cy="160" r="3"/><circle cx="378" cy="196" r="5"/><circle cx="474" cy="102" r="3"/><circle cx="601" cy="145" r="3"/><circle cx="61" cy="111" r="5"/><circle cx="191" cy="52" r="3"/><circle cx="331" cy="55" r="3"/><circle cx="553" cy="25" r="5"/><circle cx="635" cy="282" r="3"/><circle cx="352" cy="324" r="3"/><circle cx="521" cy="267" r="5"/></g></svg><span>&lt;NF-e /&gt;</span></div></div>
+   <h3 id="dialog-title-7" data-en="Conferência XML">Conferência XML</h3><div class="dialog-cover"><div class="project-preview project-preview-7"><svg viewBox="0 0 680 360" aria-hidden="true">
+  <g class="preview-grid" fill="none" stroke="currentColor"><path d="M0 90h680M0 180h680M0 270h680M85 0v360m85 0V0m85 0v360m85 0V0m85 0v360m85 0V0m85 0v360"/></g>
+  <g fill="none" stroke="currentColor" stroke-width="3"><path class="preview-panel" d="M107 75h141l48 48v162H107z"/><path d="M248 75v48h48m-130 36-19 17 19 17m70-34 19 17-19 17m-28-39-14 44m-48 35h109m-109 24h78M296 181h134"/><rect class="preview-panel" x="430" y="121" width="136" height="120" rx="24"/><path d="m465 181 23 22 43-45" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <path class="preview-scan" d="M124 139h154" stroke-width="3" stroke-linecap="round"/><circle class="preview-check" cx="498" cy="181" r="51" fill="none" stroke-width="2"/>
+</svg></div></div>
    <p data-en="Audits Brazilian electronic invoices and returns by checking fiscal codes, item identifiers and references to original invoices.">Confere códigos de operação fiscal, identificadores de produtos e referências às notas de origem em operações de devolução.</p>
    <h4 data-en="Features">Funcionalidades</h4><ul><li data-en="Fiscal operation code validation">Validação de CFOP</li><li data-en="Product identifier checks">Conferência de identificadores de produtos</li><li data-en="References to original invoices">Conferência de referências às notas de origem</li></ul>
-   <ul class="tags"><li>Python</li><li>Flask</li><li>XML</li><li>NF-e</li></ul><div class="links"><a href="https://github.com/KevinL284/conferencia-xml" data-en="View repository ↗">Ver repositório ↗</a></div>
+   <ul class="tags"><li>Python</li><li>Flask</li><li>XML</li><li>NF-e</li></ul><div class="links"><span class="private-project" data-en="Private repository">Repositório privado</span></div>
  </div></dialog>
 <article class="card project" data-category="data">
   <button type="button" class="project-open" data-dialog="project-5" aria-labelledby="project-title-5" aria-haspopup="dialog"><img src="src/assets/images/projects/meutcc.jpg" alt="" loading="lazy"><span aria-hidden="true">↗</span></button>
@@ -376,17 +401,25 @@ html:has(dialog[open]) { overflow: hidden; }
    <ul class="tags"><li>PHP</li><li>MySQL</li><li>JavaScript</li><li>HTML</li><li>CSS</li></ul><div class="links"></div>
  </div></dialog>
 <article class="card project" data-category="backend data">
-  <button type="button" class="project-open" data-dialog="project-4" aria-labelledby="project-title-4" aria-haspopup="dialog"><div class="cover-graphic"><svg viewBox="0 0 680 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke="currentColor"><path d="M-20 286 L102 230 182 278 268 160 378 196 474 102 601 145 710 52 M102 230 L61 111 191 52 268 160 331 55 474 102 553 25 601 145 635 282 474 102 M182 278 L352 324 378 196 521 267 635 282 M61 111 L-20 67 M331 55 L378 196 M521 267 L601 145"/></g><g fill="currentColor"><circle cx="102" cy="230" r="5"/><circle cx="182" cy="278" r="3"/><circle cx="268" cy="160" r="3"/><circle cx="378" cy="196" r="5"/><circle cx="474" cy="102" r="3"/><circle cx="601" cy="145" r="3"/><circle cx="61" cy="111" r="5"/><circle cx="191" cy="52" r="3"/><circle cx="331" cy="55" r="3"/><circle cx="553" cy="25" r="5"/><circle cx="635" cy="282" r="3"/><circle cx="352" cy="324" r="3"/><circle cx="521" cy="267" r="5"/></g></svg><span>NLP</span></div><span aria-hidden="true">↗</span></button>
+  <button type="button" class="project-open" data-dialog="project-4" aria-labelledby="project-title-4" aria-haspopup="dialog"><div class="project-preview project-preview-4"><svg viewBox="0 0 680 360" aria-hidden="true">
+  <g class="preview-grid" fill="none" stroke="currentColor"><path d="M0 90h680M0 180h680M0 270h680M85 0v360m85 0V0m85 0v360m85 0V0m85 0v360m85 0V0m85 0v360"/></g>
+  <g fill="none" stroke="currentColor" stroke-width="3"><rect class="preview-panel" x="72" y="108" width="170" height="144" rx="20"/><path d="M106 146h102v68H106zm0 0 51 36 51-36M242 180h158m0 0 45-59m-45 59 45 59"/><rect class="preview-panel" x="445" y="92" width="146" height="58" rx="14"/><rect class="preview-panel" x="445" y="210" width="146" height="58" rx="14"/><path d="m468 121 9 9 17-18m15 9h54m-94 118h25m15 0h54"/></g>
+  <circle class="preview-token" cx="263" cy="180" r="7"/>
+</svg></div><span aria-hidden="true">↗</span></button>
   <div class="project-body"><p class="category">2026</p><h3 id="project-title-4" data-en="Email Classifier">Email Classificador NLP</h3><p data-en="NLP email classification and AI-assisted reply drafting.">Classificador binário de e-mails com NLP, pesos por critérios e geração automática de resposta com IA generativa.</p><ul class="tags"><li>Python</li><li>NLP</li><li data-en="Generative AI">IA Generativa</li><li>Prompt Engineering</li><li>Text Classification</li><li>Automation</li></ul>
   <button type="button" class="details-button" data-dialog="project-4" aria-haspopup="dialog" data-en="View details ↗">Ver detalhes ↗</button>
   </div>
  </article>
  <dialog id="project-4" aria-labelledby="dialog-title-4"><div class="dialog-wrap">
    <form method="dialog" class="dialog-close"><button class="control" autofocus data-en="Close ×">Fechar ×</button></form>
-   <h3 id="dialog-title-4" data-en="Email Classifier">Email Classificador NLP</h3><div class="dialog-cover"><div class="cover-graphic"><svg viewBox="0 0 680 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke="currentColor"><path d="M-20 286 L102 230 182 278 268 160 378 196 474 102 601 145 710 52 M102 230 L61 111 191 52 268 160 331 55 474 102 553 25 601 145 635 282 474 102 M182 278 L352 324 378 196 521 267 635 282 M61 111 L-20 67 M331 55 L378 196 M521 267 L601 145"/></g><g fill="currentColor"><circle cx="102" cy="230" r="5"/><circle cx="182" cy="278" r="3"/><circle cx="268" cy="160" r="3"/><circle cx="378" cy="196" r="5"/><circle cx="474" cy="102" r="3"/><circle cx="601" cy="145" r="3"/><circle cx="61" cy="111" r="5"/><circle cx="191" cy="52" r="3"/><circle cx="331" cy="55" r="3"/><circle cx="553" cy="25" r="5"/><circle cx="635" cy="282" r="3"/><circle cx="352" cy="324" r="3"/><circle cx="521" cy="267" r="5"/></g></svg><span>NLP</span></div></div>
+   <h3 id="dialog-title-4" data-en="Email Classifier">Email Classificador NLP</h3><div class="dialog-cover"><div class="project-preview project-preview-4"><svg viewBox="0 0 680 360" aria-hidden="true">
+  <g class="preview-grid" fill="none" stroke="currentColor"><path d="M0 90h680M0 180h680M0 270h680M85 0v360m85 0V0m85 0v360m85 0V0m85 0v360m85 0V0m85 0v360"/></g>
+  <g fill="none" stroke="currentColor" stroke-width="3"><rect class="preview-panel" x="72" y="108" width="170" height="144" rx="20"/><path d="M106 146h102v68H106zm0 0 51 36 51-36M242 180h158m0 0 45-59m-45 59 45 59"/><rect class="preview-panel" x="445" y="92" width="146" height="58" rx="14"/><rect class="preview-panel" x="445" y="210" width="146" height="58" rx="14"/><path d="m468 121 9 9 17-18m15 9h54m-94 118h25m15 0h54"/></g>
+  <circle class="preview-token" cx="263" cy="180" r="7"/>
+</svg></div></div>
    <p data-en="Classifies emails using weighted criteria and drafts suggested replies with generative AI.">Aplicação voltada à classificação de e-mails como produtivos ou improdutivos utilizando técnicas de NLP, critérios ponderados e engenharia de prompt. Além da classificação binária, o sistema gera uma sugestão de resposta com apoio de IA generativa, aproximando automação textual, processamento de linguagem natural e lógica aplicada ao contexto de comunicação profissional.</p>
    <h4 data-en="Features">Funcionalidades</h4><ul><li data-en="Binary email classification">Classificação binária de e-mails</li><li data-en="Weighted decision criteria">Uso de critérios ponderados para decisão</li><li data-en="Natural language processing">Processamento de linguagem natural</li><li data-en="Automatic reply suggestions">Geração automática de resposta</li><li data-en="Applied prompt engineering">Engenharia de prompt aplicada</li><li data-en="Text workflow automation">Automação de fluxo textual</li></ul>
-   <ul class="tags"><li>Python</li><li>NLP</li><li data-en="Generative AI">IA Generativa</li><li>Prompt Engineering</li><li>Text Classification</li><li>Automation</li></ul><div class="links"><a href="https://github.com/KevinL284/EmailClassificadorNLP" data-en="View repository ↗">Ver repositório ↗</a></div>
+   <ul class="tags"><li>Python</li><li>NLP</li><li data-en="Generative AI">IA Generativa</li><li>Prompt Engineering</li><li>Text Classification</li><li>Automation</li></ul><div class="links"><span class="private-project" data-en="Private repository">Repositório privado</span></div>
  </div></dialog>
 <article class="card project" data-category="data">
   <button type="button" class="project-open" data-dialog="project-6" aria-labelledby="project-title-6" aria-haspopup="dialog"><img src="src/assets/images/projects/eobatman.jpg" alt="" loading="lazy"><span aria-hidden="true">↗</span></button>
@@ -434,7 +467,8 @@ html:has(dialog[open]) { overflow: hidden; }
   <section class="section writing" id="writing" aria-labelledby="writing-title">
     <div class="section-heading"><h2 id="writing-title" data-en="Writing">Publicações</h2></div>
     <ul class="cards writing-list" id="writing-list" hidden></ul>
-    <p id="writing-status" data-en="No articles here yet. Follow my updates on LinkedIn.">Ainda não há artigos por aqui. Acompanhe minhas atualizações no LinkedIn.</p>
+    <p id="writing-status" data-en="No articles available here yet.">Ainda não há artigos disponíveis por aqui.</p>
+    <a class="button" href="https://medium.com/@kevin.lucas284sz" target="_blank" rel="noopener noreferrer" data-en="Follow on Medium ↗">Acompanhar no Medium ↗</a>
     <a class="button" href="https://www.linkedin.com/in/kevin-souza-471791236/" target="_blank" rel="noopener noreferrer" data-en="Follow on LinkedIn ↗">Acompanhar no LinkedIn ↗</a>
   </section>
   <section class="section contact" id="contact" aria-labelledby="contact-title">
