@@ -218,6 +218,32 @@ html:has(dialog[open]) { overflow: hidden; }
     50% { box-shadow: 0 0 14px -2px var(--pulse); }
   }
 }
+
+.profile-head { align-items: end; flex-wrap: wrap; gap: .8rem 1rem; }
+.profile-head img { width: clamp(110px, 13vw, 156px); height: auto; aspect-ratio: 1; box-shadow: 0 12px 25px #06122d49; }
+.profile-identity { flex: 1 1 125px; align-self: center; }
+.specialties { border-top: 1px solid var(--line); padding: 1rem 1.3rem; background: var(--wash); }
+.specialties h3 { margin-bottom: .3rem; }
+.specialties p { margin: 0; color: var(--muted); font-size: .9rem; }
+#spec-slides { display: grid; }
+#spec-slides article { grid-area: 1 / 1; }
+#spec-slides article[hidden] { display: block; visibility: hidden; }
+.spec-controls { display: flex; align-items: center; justify-content: flex-end; gap: .75rem; margin-top: .6rem; color: var(--muted); font: .8rem ui-monospace, monospace; }
+.spec-controls button { min-width: 44px; }
+.hero-graph { opacity: .52; }
+.hero-graph svg > g { opacity: .42; }
+.graph-pulse { fill: #2670ed; filter: drop-shadow(0 0 4px #287cff); }
+[data-theme=dark] .graph-pulse { fill: #78b8ff; }
+.writing-list { list-style: none; padding: 0; }
+.writing-list[hidden] { display: none; }
+.writing-list a { font-weight: 700; }
+.writing-list time, #writing-status { color: var(--muted); }
+.writing-list time { display: block; margin-top: .35rem; }
+@media (prefers-reduced-motion: no-preference) {
+  .hero .profile, #spec-slides article:not([hidden]), dialog[open] .dialog-wrap { animation: soft-entry .27s ease both; }
+  @keyframes soft-entry { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+}
+@media (prefers-reduced-motion: reduce) { .graph-pulse { display: none; } }
 </style>
 </head>
 <body>
@@ -229,6 +255,7 @@ html:has(dialog[open]) { overflow: hidden; }
       <a href="#projects" data-en="Projects">Projetos</a>
       <a href="#experience" data-en="Experience">Experiência</a>
       <a href="#stack" data-en="Toolbox">Stack</a>
+      <a href="#writing" data-en="Writing">Publicações</a>
       <a href="#contact" data-en="Contact">Contato</a>
     </nav>
     <div class="controls">
@@ -239,7 +266,7 @@ html:has(dialog[open]) { overflow: hidden; }
 </header>
 <main id="main" class="wrap">
   <section class="hero" id="home" aria-labelledby="hero-title">
-    <div class="hero-graph"><svg viewBox="0 0 680 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke="currentColor"><path d="M-20 286 L102 230 182 278 268 160 378 196 474 102 601 145 710 52 M102 230 L61 111 191 52 268 160 331 55 474 102 553 25 601 145 635 282 474 102 M182 278 L352 324 378 196 521 267 635 282 M61 111 L-20 67 M331 55 L378 196 M521 267 L601 145"/></g><g fill="currentColor"><circle cx="102" cy="230" r="5"/><circle cx="182" cy="278" r="3"/><circle cx="268" cy="160" r="3"/><circle cx="378" cy="196" r="5"/><circle cx="474" cy="102" r="3"/><circle cx="601" cy="145" r="3"/><circle cx="61" cy="111" r="5"/><circle cx="191" cy="52" r="3"/><circle cx="331" cy="55" r="3"/><circle cx="553" cy="25" r="5"/><circle cx="635" cy="282" r="3"/><circle cx="352" cy="324" r="3"/><circle cx="521" cy="267" r="5"/></g></svg></div>
+    <div class="hero-graph"><svg viewBox="0 0 680 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke="currentColor"><path d="M-20 286 L102 230 182 278 268 160 378 196 474 102 601 145 710 52 M102 230 L61 111 191 52 268 160 331 55 474 102 553 25 601 145 635 282 474 102 M182 278 L352 324 378 196 521 267 635 282 M61 111 L-20 67 M331 55 L378 196 M521 267 L601 145"/></g><g fill="currentColor"><circle cx="102" cy="230" r="5"/><circle cx="182" cy="278" r="3"/><circle cx="268" cy="160" r="3"/><circle cx="378" cy="196" r="5"/><circle cx="474" cy="102" r="3"/><circle cx="601" cy="145" r="3"/><circle cx="61" cy="111" r="5"/><circle cx="191" cy="52" r="3"/><circle cx="331" cy="55" r="3"/><circle cx="553" cy="25" r="5"/><circle cx="635" cy="282" r="3"/><circle cx="352" cy="324" r="3"/><circle cx="521" cy="267" r="5"/></g><circle class="graph-pulse" r="4"><animateMotion path="M-20 286 L102 230 182 278 268 160 378 196 474 102 601 145 710 52" dur="11s" begin="-2s" repeatCount="indefinite"/></circle><circle class="graph-pulse" r="4"><animateMotion path="M61 111 L191 52 268 160 331 55 474 102 553 25 601 145 635 282" dur="13s" begin="-6s" repeatCount="indefinite"/></circle><circle class="graph-pulse" r="4"><animateMotion path="M182 278 L352 324 378 196 521 267 635 282" dur="8s" begin="-1s" repeatCount="indefinite"/></circle></svg></div>
     <div>
       <p class="eyebrow" data-en="KEVIN SOUZA / JOÃO PESSOA, BRAZIL">KEVIN SOUZA / JOÃO PESSOA, PB</p>
       <h1 id="hero-title" data-en="Data engineering & backend">Engenharia de dados &amp; backend</h1>
@@ -251,7 +278,7 @@ html:has(dialog[open]) { overflow: hidden; }
     </div>
     <aside class="profile" aria-label="Perfil profissional" data-label-en="Professional profile">
       <div class="profile-head">
-        <img src="https://github.com/KevinL284.png?size=144" alt="" width="64" height="64">
+        <img src="https://github.com/KevinL284.png?size=512" alt="Kevin Souza" width="512" height="512" fetchpriority="high">
         <div class="profile-identity"><strong>Kevin Souza</strong><span data-en="BSc, Computer Science">Bacharel em Ciência da Computação</span></div>
       </div>
       <dl>
@@ -259,6 +286,18 @@ html:has(dialog[open]) { overflow: hidden; }
         <div><dt data-en="Core tools">Stack principal</dt><dd>Python · SQL · Power Query</dd></div>
         <div><dt data-en="Focus">Foco</dt><dd data-en="ETL, APIs, automation">ETL, APIs, automação</dd></div>
       </dl>
+      <section class="specialties" aria-label="Especialidades" data-label-en="Specialties">
+        <div id="spec-slides" aria-live="polite" aria-atomic="true">
+          <article><h3 data-en="Data engineering">Engenharia de dados</h3><p data-en="ETL with Python, SQL and Power Query to turn ERP exports into datasets for analysis.">ETL com Python, SQL e Power Query para transformar exportações de ERP em bases para análise.</p></article>
+          <article hidden><h3 data-en="Backend and APIs">Backend e APIs</h3><p data-en="REST APIs with FastAPI and Flask, relational persistence and automated tests.">APIs REST com FastAPI e Flask, persistência relacional e testes automatizados.</p></article>
+          <article hidden><h3 data-en="Invoice automation">Automação fiscal</h3><p data-en="Electronic invoice XML validation, item checks and traceability for returns.">Validação de XML de NF-e, conferência de itens e rastreabilidade de devoluções.</p></article>
+        </div>
+        <div class="spec-controls">
+          <button class="control" type="button" id="spec-prev" aria-label="Especialidade anterior" data-label-en="Previous specialty" aria-controls="spec-slides">←</button>
+          <span id="spec-position" aria-hidden="true">1 / 3</span>
+          <button class="control" type="button" id="spec-next" aria-label="Próxima especialidade" data-label-en="Next specialty" aria-controls="spec-slides">→</button>
+        </div>
+      </section>
     </aside>
   </section>
 
@@ -392,6 +431,12 @@ html:has(dialog[open]) { overflow: hidden; }
     </div>
   </section>
 
+  <section class="section writing" id="writing" aria-labelledby="writing-title">
+    <div class="section-heading"><h2 id="writing-title" data-en="Writing">Publicações</h2></div>
+    <ul class="cards writing-list" id="writing-list" hidden></ul>
+    <p id="writing-status" data-en="No articles here yet. Follow my updates on LinkedIn.">Ainda não há artigos por aqui. Acompanhe minhas atualizações no LinkedIn.</p>
+    <a class="button" href="https://www.linkedin.com/in/kevin-souza-471791236/" target="_blank" rel="noopener noreferrer" data-en="Follow on LinkedIn ↗">Acompanhar no LinkedIn ↗</a>
+  </section>
   <section class="section contact" id="contact" aria-labelledby="contact-title">
     <div>
       <h2 id="contact-title" data-en="Get in touch">Vamos conversar</h2>
@@ -508,6 +553,47 @@ for (const trigger of document.querySelectorAll('[data-dialog]')) {
     dialog.addEventListener('close', () => trigger.focus(), { once: true });
   });
 }
+
+const specialties = [...document.querySelectorAll('#spec-slides article')];
+let specialtyIndex = 0;
+function moveSpecialty(step) {
+  specialtyIndex = (specialtyIndex + step + specialties.length) % specialties.length;
+  specialties.forEach((slide, index) => {
+    slide.hidden = index !== specialtyIndex;
+    slide.setAttribute('aria-hidden', String(slide.hidden));
+  });
+  document.querySelector('#spec-position').textContent = (specialtyIndex + 1) + ' / ' + specialties.length;
+}
+document.querySelector('#spec-prev').addEventListener('click', () => moveSpecialty(-1));
+document.querySelector('#spec-next').addEventListener('click', () => moveSpecialty(1));
+moveSpecialty(0);
+
+async function loadWriting() {
+  try {
+    const response = await fetch('publications.php', { headers: { Accept: 'application/json' } });
+    if (!response.ok) return;
+    const articles = await response.json();
+    if (!Array.isArray(articles) || !articles.length) return;
+    const list = document.querySelector('#writing-list');
+    for (const article of articles) {
+      const url = new URL(article.url);
+      if (url.protocol !== 'https:' || url.hostname !== 'medium.com') continue;
+      const item = document.createElement('li');
+      item.className = 'card';
+      const link = document.createElement('a');
+      link.href = url.href;
+      link.textContent = article.title;
+      item.append(link);
+      list.append(item);
+    }
+    if (!list.childElementCount) return;
+    list.hidden = false;
+    document.querySelector('#writing-status').hidden = true;
+  } catch {
+    // The LinkedIn link remains available while the feed is unavailable.
+  }
+}
+loadWriting();
 
 let english = false;
 try { english = localStorage.getItem('kevin-language') === 'en'; } catch {}
