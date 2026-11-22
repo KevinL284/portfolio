@@ -307,6 +307,14 @@ nav a[aria-current="location"] { color: var(--accent); text-decoration: underlin
 .certificate-card { display:flex; flex-direction:column; gap:.45rem; }
 .certificate-card h3,.certificate-card p { margin:0; }
 .certificate-card p { font-size:.89rem; }
+
+.certificate-preview { display:flex; align-items:center; gap:.7rem; padding:.7rem; margin-bottom:.35rem; border:1px solid var(--line); border-radius:.5rem; background:var(--wash); color:var(--accent); }
+.certificate-preview svg { flex:none; }
+.certificate-preview p { margin:0; color:var(--ink); font:600 .81rem/1.45 ui-monospace,monospace; }
+.certificate-preview-large { padding:1rem; margin-bottom:1rem; }
+.certificate-card .tags { margin-top:auto; }
+.certificate-card .certificate-description { margin-bottom:.4rem; }
+.certificate-card .details-button { align-self:flex-start; text-align:left; }
 </style>
 </head>
 <body>
@@ -534,69 +542,245 @@ nav a[aria-current="location"] { color: var(--accent); text-decoration: underlin
     </div>
     <div class="cards certificates" id="stack-certs" hidden>
         <article class="card certificate-card">
+          <div class="certificate-preview"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>DIO · BairesDev · <time datetime="2025-09-19" data-en="2025-09-19">19/09/2025</time> · 102 h</p></div>
           <h3 data-en="BairesDev — Machine Learning Training">BairesDev — Machine Learning Training</h3>
-          <p>DIO · BairesDev · <time datetime="2025-09-19" data-en="2025-09-19">19/09/2025</time> · 102 h</p>
+          <p class="certificate-description" data-en="A 102-hour bootcamp focused on machine learning.">Bootcamp de 102 horas voltado à formação em aprendizado de máquina.</p>
+          <ul class="tags"><li>Machine Learning</li></ul>
+          <button type="button" class="details-button" data-dialog="certificate-1" aria-haspopup="dialog" data-en="View certificate details ↗">Ver detalhes do certificado ↗</button>
         </article>
+        <dialog id="certificate-1" aria-labelledby="certificate-title-1"><div class="dialog-wrap">
+          <form method="dialog" class="dialog-close"><button class="control" autofocus data-en="Close ×">Fechar ×</button></form>
+          <div class="certificate-preview certificate-preview-large"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>DIO · BairesDev · <time datetime="2025-09-19" data-en="2025-09-19">19/09/2025</time> · 102 h</p></div>
+          <h3 id="certificate-title-1" data-en="BairesDev — Machine Learning Training">BairesDev — Machine Learning Training</h3>
+          <p class="certificate-description" data-en="A 102-hour bootcamp focused on machine learning.">Bootcamp de 102 horas voltado à formação em aprendizado de máquina.</p>
+          <h4 data-en="Related topics">Temas relacionados</h4>
+          <ul class="tags"><li>Machine Learning</li></ul>
+        </div></dialog>
         <article class="card certificate-card">
+          <div class="certificate-preview"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>UFPB · GESENE · <time datetime="2025-07-21" data-en="2025-07-21">21/07/2025</time> · 12 h</p></div>
           <h3 data-en="3rd Enetrix Project Symposium">III Simpósio do Projeto Enetrix</h3>
-          <p>UFPB · GESENE · <time datetime="2025-07-21" data-en="2025-07-21">21/07/2025</time> · 12 h</p>
+          <p class="certificate-description" data-en="Attendance at a symposium on science, technology and innovation in international energy diplomacy.">Participação como ouvinte em simpósio sobre ciência, tecnologia e inovação aplicadas à diplomacia energética internacional.</p>
+          <ul class="tags"><li data-en="Energy diplomacy">Diplomacia energética</li><li data-en="Research">Pesquisa</li></ul>
+          <button type="button" class="details-button" data-dialog="certificate-2" aria-haspopup="dialog" data-en="View certificate details ↗">Ver detalhes do certificado ↗</button>
         </article>
+        <dialog id="certificate-2" aria-labelledby="certificate-title-2"><div class="dialog-wrap">
+          <form method="dialog" class="dialog-close"><button class="control" autofocus data-en="Close ×">Fechar ×</button></form>
+          <div class="certificate-preview certificate-preview-large"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>UFPB · GESENE · <time datetime="2025-07-21" data-en="2025-07-21">21/07/2025</time> · 12 h</p></div>
+          <h3 id="certificate-title-2" data-en="3rd Enetrix Project Symposium">III Simpósio do Projeto Enetrix</h3>
+          <p class="certificate-description" data-en="Attendance at a symposium on science, technology and innovation in international energy diplomacy.">Participação como ouvinte em simpósio sobre ciência, tecnologia e inovação aplicadas à diplomacia energética internacional.</p>
+          <h4 data-en="Related topics">Temas relacionados</h4>
+          <ul class="tags"><li data-en="Energy diplomacy">Diplomacia energética</li><li data-en="Research">Pesquisa</li></ul>
+        </div></dialog>
         <article class="card certificate-card">
+          <div class="certificate-preview"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>FPB · <time datetime="2025-07-08" data-en="2025-07-08">08/07/2025</time> · 160 h</p></div>
           <h3 data-en="Innovation, Sustainability and Business Competitiveness">Inovação, sustentabilidade e competitividade empresarial</h3>
-          <p>FPB · <time datetime="2025-07-08" data-en="2025-07-08">08/07/2025</time> · 160 h</p>
+          <p class="certificate-description" data-en="Coursework on innovation and sustainability in business competitiveness.">Unidade curricular sobre inovação e sustentabilidade no contexto da competitividade empresarial.</p>
+          <ul class="tags"><li data-en="Innovation">Inovação</li><li data-en="Sustainability">Sustentabilidade</li></ul>
+          <button type="button" class="details-button" data-dialog="certificate-3" aria-haspopup="dialog" data-en="View certificate details ↗">Ver detalhes do certificado ↗</button>
         </article>
+        <dialog id="certificate-3" aria-labelledby="certificate-title-3"><div class="dialog-wrap">
+          <form method="dialog" class="dialog-close"><button class="control" autofocus data-en="Close ×">Fechar ×</button></form>
+          <div class="certificate-preview certificate-preview-large"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>FPB · <time datetime="2025-07-08" data-en="2025-07-08">08/07/2025</time> · 160 h</p></div>
+          <h3 id="certificate-title-3" data-en="Innovation, Sustainability and Business Competitiveness">Inovação, sustentabilidade e competitividade empresarial</h3>
+          <p class="certificate-description" data-en="Coursework on innovation and sustainability in business competitiveness.">Unidade curricular sobre inovação e sustentabilidade no contexto da competitividade empresarial.</p>
+          <h4 data-en="Related topics">Temas relacionados</h4>
+          <ul class="tags"><li data-en="Innovation">Inovação</li><li data-en="Sustainability">Sustentabilidade</li></ul>
+        </div></dialog>
         <article class="card certificate-card">
+          <div class="certificate-preview"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>FPB · <time datetime="2025-07-08" data-en="2025-07-08">08/07/2025</time> · 160 h</p></div>
           <h3 data-en="Mathematical Structures">Estruturas matemáticas</h3>
-          <p>FPB · <time datetime="2025-07-08" data-en="2025-07-08">08/07/2025</time> · 160 h</p>
+          <p class="certificate-description" data-en="Coursework in mathematical structures, a foundation for formal reasoning and algorithm analysis.">Formação em estruturas matemáticas, base para raciocínio formal e análise de algoritmos.</p>
+          <ul class="tags"><li data-en="Mathematics">Matemática</li><li data-en="Logic">Lógica</li></ul>
+          <button type="button" class="details-button" data-dialog="certificate-4" aria-haspopup="dialog" data-en="View certificate details ↗">Ver detalhes do certificado ↗</button>
         </article>
+        <dialog id="certificate-4" aria-labelledby="certificate-title-4"><div class="dialog-wrap">
+          <form method="dialog" class="dialog-close"><button class="control" autofocus data-en="Close ×">Fechar ×</button></form>
+          <div class="certificate-preview certificate-preview-large"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>FPB · <time datetime="2025-07-08" data-en="2025-07-08">08/07/2025</time> · 160 h</p></div>
+          <h3 id="certificate-title-4" data-en="Mathematical Structures">Estruturas matemáticas</h3>
+          <p class="certificate-description" data-en="Coursework in mathematical structures, a foundation for formal reasoning and algorithm analysis.">Formação em estruturas matemáticas, base para raciocínio formal e análise de algoritmos.</p>
+          <h4 data-en="Related topics">Temas relacionados</h4>
+          <ul class="tags"><li data-en="Mathematics">Matemática</li><li data-en="Logic">Lógica</li></ul>
+        </div></dialog>
         <article class="card certificate-card">
+          <div class="certificate-preview"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>UFPB · <time datetime="2025-06-05" data-en="2025-06-05">05/06/2025</time> · 4 h</p></div>
           <h3 data-en="Mortality Data Visualization with Python">Visualização de dados de mortalidade com Python</h3>
-          <p>UFPB · <time datetime="2025-06-05" data-en="2025-06-05">05/06/2025</time> · 4 h</p>
+          <p class="certificate-description" data-en="A short course on visualizing mortality data with Python.">Minicurso sobre visualização de dados de mortalidade com Python.</p>
+          <ul class="tags"><li>Python</li><li data-en="Data visualization">Visualização de dados</li></ul>
+          <button type="button" class="details-button" data-dialog="certificate-5" aria-haspopup="dialog" data-en="View certificate details ↗">Ver detalhes do certificado ↗</button>
         </article>
+        <dialog id="certificate-5" aria-labelledby="certificate-title-5"><div class="dialog-wrap">
+          <form method="dialog" class="dialog-close"><button class="control" autofocus data-en="Close ×">Fechar ×</button></form>
+          <div class="certificate-preview certificate-preview-large"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>UFPB · <time datetime="2025-06-05" data-en="2025-06-05">05/06/2025</time> · 4 h</p></div>
+          <h3 id="certificate-title-5" data-en="Mortality Data Visualization with Python">Visualização de dados de mortalidade com Python</h3>
+          <p class="certificate-description" data-en="A short course on visualizing mortality data with Python.">Minicurso sobre visualização de dados de mortalidade com Python.</p>
+          <h4 data-en="Related topics">Temas relacionados</h4>
+          <ul class="tags"><li>Python</li><li data-en="Data visualization">Visualização de dados</li></ul>
+        </div></dialog>
         <article class="card certificate-card">
+          <div class="certificate-preview"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>FPB · <time datetime="2024-12-31" data-en="2024-12-31">31/12/2024</time> · 40 h <span data-en="per document">por documento</span></p></div>
           <h3 data-en="Liderando Project in Artificial Intelligence">Projeto Liderando em Inteligência Artificial</h3>
-          <p>FPB · <time datetime="2024-12-31" data-en="2024-12-31">31/12/2024</time> · 40 h <span data-en="per document">por documento</span></p>
+          <p class="certificate-description" data-en="Liderando project in the AI course, with four credential records of 40 hours each.">Projeto Liderando da unidade curricular de IA, com quatro comprovantes de 40 horas cada.</p>
+          <ul class="tags"><li data-en="Artificial Intelligence">Inteligência Artificial</li><li data-en="Academic project">Projeto acadêmico</li></ul>
+          <button type="button" class="details-button" data-dialog="certificate-6" aria-haspopup="dialog" data-en="View certificate details ↗">Ver detalhes do certificado ↗</button>
         </article>
+        <dialog id="certificate-6" aria-labelledby="certificate-title-6"><div class="dialog-wrap">
+          <form method="dialog" class="dialog-close"><button class="control" autofocus data-en="Close ×">Fechar ×</button></form>
+          <div class="certificate-preview certificate-preview-large"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>FPB · <time datetime="2024-12-31" data-en="2024-12-31">31/12/2024</time> · 40 h <span data-en="per document">por documento</span></p></div>
+          <h3 id="certificate-title-6" data-en="Liderando Project in Artificial Intelligence">Projeto Liderando em Inteligência Artificial</h3>
+          <p class="certificate-description" data-en="Liderando project in the AI course, with four credential records of 40 hours each.">Projeto Liderando da unidade curricular de IA, com quatro comprovantes de 40 horas cada.</p>
+          <h4 data-en="Related topics">Temas relacionados</h4>
+          <ul class="tags"><li data-en="Artificial Intelligence">Inteligência Artificial</li><li data-en="Academic project">Projeto acadêmico</li></ul>
+        </div></dialog>
         <article class="card certificate-card">
+          <div class="certificate-preview"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>FPB · <time datetime="2024-12-24" data-en="2024-12-24">24/12/2024</time> · 160 h</p></div>
           <h3 data-en="Professional Qualification in Artificial Intelligence">Qualificação profissional em Inteligência Artificial</h3>
-          <p>FPB · <time datetime="2024-12-24" data-en="2024-12-24">24/12/2024</time> · 160 h</p>
+          <p class="certificate-description" data-en="Professional qualification awarded after completing the Artificial Intelligence course.">Qualificação profissional concedida após a conclusão da unidade curricular de Inteligência Artificial.</p>
+          <ul class="tags"><li data-en="Artificial Intelligence">Inteligência Artificial</li></ul>
+          <button type="button" class="details-button" data-dialog="certificate-7" aria-haspopup="dialog" data-en="View certificate details ↗">Ver detalhes do certificado ↗</button>
         </article>
+        <dialog id="certificate-7" aria-labelledby="certificate-title-7"><div class="dialog-wrap">
+          <form method="dialog" class="dialog-close"><button class="control" autofocus data-en="Close ×">Fechar ×</button></form>
+          <div class="certificate-preview certificate-preview-large"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>FPB · <time datetime="2024-12-24" data-en="2024-12-24">24/12/2024</time> · 160 h</p></div>
+          <h3 id="certificate-title-7" data-en="Professional Qualification in Artificial Intelligence">Qualificação profissional em Inteligência Artificial</h3>
+          <p class="certificate-description" data-en="Professional qualification awarded after completing the Artificial Intelligence course.">Qualificação profissional concedida após a conclusão da unidade curricular de Inteligência Artificial.</p>
+          <h4 data-en="Related topics">Temas relacionados</h4>
+          <ul class="tags"><li data-en="Artificial Intelligence">Inteligência Artificial</li></ul>
+        </div></dialog>
         <article class="card certificate-card">
+          <div class="certificate-preview"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>FPB · <time datetime="2024-12-24" data-en="2024-12-24">24/12/2024</time> · 160 h</p></div>
           <h3 data-en="Theory of Computation and Compilers">Teoria da computação e compiladores</h3>
-          <p>FPB · <time datetime="2024-12-24" data-en="2024-12-24">24/12/2024</time> · 160 h</p>
+          <p class="certificate-description" data-en="Coursework on the formal foundations of computing and compilers.">Unidade curricular sobre fundamentos formais da computação e compiladores.</p>
+          <ul class="tags"><li data-en="Theory of computation">Teoria da computação</li><li data-en="Compilers">Compiladores</li></ul>
+          <button type="button" class="details-button" data-dialog="certificate-8" aria-haspopup="dialog" data-en="View certificate details ↗">Ver detalhes do certificado ↗</button>
         </article>
+        <dialog id="certificate-8" aria-labelledby="certificate-title-8"><div class="dialog-wrap">
+          <form method="dialog" class="dialog-close"><button class="control" autofocus data-en="Close ×">Fechar ×</button></form>
+          <div class="certificate-preview certificate-preview-large"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>FPB · <time datetime="2024-12-24" data-en="2024-12-24">24/12/2024</time> · 160 h</p></div>
+          <h3 id="certificate-title-8" data-en="Theory of Computation and Compilers">Teoria da computação e compiladores</h3>
+          <p class="certificate-description" data-en="Coursework on the formal foundations of computing and compilers.">Unidade curricular sobre fundamentos formais da computação e compiladores.</p>
+          <h4 data-en="Related topics">Temas relacionados</h4>
+          <ul class="tags"><li data-en="Theory of computation">Teoria da computação</li><li data-en="Compilers">Compiladores</li></ul>
+        </div></dialog>
         <article class="card certificate-card">
+          <div class="certificate-preview"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>FPB · IBM · <time datetime="2024-12-18" data-en="2024-12-18">18/12/2024</time> · 160 h</p></div>
           <h3 data-en="Artificial Intelligence">Inteligência Artificial</h3>
-          <p>FPB · IBM · <time datetime="2024-12-18" data-en="2024-12-18">18/12/2024</time> · 160 h</p>
+          <p class="certificate-description" data-en="Artificial Intelligence coursework from FPB in partnership with IBM.">Unidade curricular de Inteligência Artificial da FPB em parceria com a IBM.</p>
+          <ul class="tags"><li data-en="Artificial Intelligence">Inteligência Artificial</li></ul>
+          <button type="button" class="details-button" data-dialog="certificate-9" aria-haspopup="dialog" data-en="View certificate details ↗">Ver detalhes do certificado ↗</button>
         </article>
+        <dialog id="certificate-9" aria-labelledby="certificate-title-9"><div class="dialog-wrap">
+          <form method="dialog" class="dialog-close"><button class="control" autofocus data-en="Close ×">Fechar ×</button></form>
+          <div class="certificate-preview certificate-preview-large"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>FPB · IBM · <time datetime="2024-12-18" data-en="2024-12-18">18/12/2024</time> · 160 h</p></div>
+          <h3 id="certificate-title-9" data-en="Artificial Intelligence">Inteligência Artificial</h3>
+          <p class="certificate-description" data-en="Artificial Intelligence coursework from FPB in partnership with IBM.">Unidade curricular de Inteligência Artificial da FPB em parceria com a IBM.</p>
+          <h4 data-en="Related topics">Temas relacionados</h4>
+          <ul class="tags"><li data-en="Artificial Intelligence">Inteligência Artificial</li></ul>
+        </div></dialog>
         <article class="card certificate-card">
+          <div class="certificate-preview"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>FPB · <time datetime="2024-07-04" data-en="2024-07-04">04/07/2024</time> · 160 h</p></div>
           <h3 data-en="Data Structures and Algorithm Analysis">Estruturas de dados e análise de algoritmos</h3>
-          <p>FPB · <time datetime="2024-07-04" data-en="2024-07-04">04/07/2024</time> · 160 h</p>
+          <p class="certificate-description" data-en="Coursework on organizing data and analyzing algorithms.">Unidade curricular sobre organização de dados e análise de algoritmos.</p>
+          <ul class="tags"><li data-en="Data structures">Estruturas de dados</li><li data-en="Algorithms">Algoritmos</li></ul>
+          <button type="button" class="details-button" data-dialog="certificate-10" aria-haspopup="dialog" data-en="View certificate details ↗">Ver detalhes do certificado ↗</button>
         </article>
+        <dialog id="certificate-10" aria-labelledby="certificate-title-10"><div class="dialog-wrap">
+          <form method="dialog" class="dialog-close"><button class="control" autofocus data-en="Close ×">Fechar ×</button></form>
+          <div class="certificate-preview certificate-preview-large"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>FPB · <time datetime="2024-07-04" data-en="2024-07-04">04/07/2024</time> · 160 h</p></div>
+          <h3 id="certificate-title-10" data-en="Data Structures and Algorithm Analysis">Estruturas de dados e análise de algoritmos</h3>
+          <p class="certificate-description" data-en="Coursework on organizing data and analyzing algorithms.">Unidade curricular sobre organização de dados e análise de algoritmos.</p>
+          <h4 data-en="Related topics">Temas relacionados</h4>
+          <ul class="tags"><li data-en="Data structures">Estruturas de dados</li><li data-en="Algorithms">Algoritmos</li></ul>
+        </div></dialog>
         <article class="card certificate-card">
+          <div class="certificate-preview"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>FPB · <time datetime="2024-07-04" data-en="2024-07-04">04/07/2024</time> · 160 h</p></div>
           <h3 data-en="Computer Graphics and Virtual Reality">Computação gráfica e realidade virtual</h3>
-          <p>FPB · <time datetime="2024-07-04" data-en="2024-07-04">04/07/2024</time> · 160 h</p>
+          <p class="certificate-description" data-en="Qualification in computer graphics and virtual reality.">Qualificação na unidade curricular de computação gráfica e realidade virtual.</p>
+          <ul class="tags"><li data-en="Computer graphics">Computação gráfica</li><li data-en="Virtual reality">Realidade virtual</li></ul>
+          <button type="button" class="details-button" data-dialog="certificate-11" aria-haspopup="dialog" data-en="View certificate details ↗">Ver detalhes do certificado ↗</button>
         </article>
+        <dialog id="certificate-11" aria-labelledby="certificate-title-11"><div class="dialog-wrap">
+          <form method="dialog" class="dialog-close"><button class="control" autofocus data-en="Close ×">Fechar ×</button></form>
+          <div class="certificate-preview certificate-preview-large"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>FPB · <time datetime="2024-07-04" data-en="2024-07-04">04/07/2024</time> · 160 h</p></div>
+          <h3 id="certificate-title-11" data-en="Computer Graphics and Virtual Reality">Computação gráfica e realidade virtual</h3>
+          <p class="certificate-description" data-en="Qualification in computer graphics and virtual reality.">Qualificação na unidade curricular de computação gráfica e realidade virtual.</p>
+          <h4 data-en="Related topics">Temas relacionados</h4>
+          <ul class="tags"><li data-en="Computer graphics">Computação gráfica</li><li data-en="Virtual reality">Realidade virtual</li></ul>
+        </div></dialog>
         <article class="card certificate-card">
+          <div class="certificate-preview"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>FPB · <time datetime="2023-12-29" data-en="2023-12-29">29/12/2023</time> · 160 h</p></div>
           <h3 data-en="Software Engineering Models, Methods and Techniques">Modelos, métodos e técnicas da engenharia de software</h3>
-          <p>FPB · <time datetime="2023-12-29" data-en="2023-12-29">29/12/2023</time> · 160 h</p>
+          <p class="certificate-description" data-en="Qualification in software engineering methods applied to system development.">Qualificação em métodos de engenharia de software aplicados ao desenvolvimento de sistemas.</p>
+          <ul class="tags"><li data-en="Software engineering">Engenharia de software</li><li data-en="Development methods">Métodos de desenvolvimento</li></ul>
+          <button type="button" class="details-button" data-dialog="certificate-12" aria-haspopup="dialog" data-en="View certificate details ↗">Ver detalhes do certificado ↗</button>
         </article>
+        <dialog id="certificate-12" aria-labelledby="certificate-title-12"><div class="dialog-wrap">
+          <form method="dialog" class="dialog-close"><button class="control" autofocus data-en="Close ×">Fechar ×</button></form>
+          <div class="certificate-preview certificate-preview-large"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>FPB · <time datetime="2023-12-29" data-en="2023-12-29">29/12/2023</time> · 160 h</p></div>
+          <h3 id="certificate-title-12" data-en="Software Engineering Models, Methods and Techniques">Modelos, métodos e técnicas da engenharia de software</h3>
+          <p class="certificate-description" data-en="Qualification in software engineering methods applied to system development.">Qualificação em métodos de engenharia de software aplicados ao desenvolvimento de sistemas.</p>
+          <h4 data-en="Related topics">Temas relacionados</h4>
+          <ul class="tags"><li data-en="Software engineering">Engenharia de software</li><li data-en="Development methods">Métodos de desenvolvimento</li></ul>
+        </div></dialog>
         <article class="card certificate-card">
+          <div class="certificate-preview"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>FPB · Teya · <time datetime="2023-12-15" data-en="2023-12-15">15/12/2023</time> · 160 h</p></div>
           <h3 data-en="Software Management and Quality">Gestão e qualidade de software</h3>
-          <p>FPB · Teya · <time datetime="2023-12-15" data-en="2023-12-15">15/12/2023</time> · 160 h</p>
+          <p class="certificate-description" data-en="Software management and quality coursework from FPB in partnership with Teya.">Unidade curricular de gestão e qualidade de software, ministrada pela FPB em parceria com a Teya.</p>
+          <ul class="tags"><li data-en="Software quality">Qualidade de software</li><li data-en="Management">Gestão</li></ul>
+          <button type="button" class="details-button" data-dialog="certificate-13" aria-haspopup="dialog" data-en="View certificate details ↗">Ver detalhes do certificado ↗</button>
         </article>
+        <dialog id="certificate-13" aria-labelledby="certificate-title-13"><div class="dialog-wrap">
+          <form method="dialog" class="dialog-close"><button class="control" autofocus data-en="Close ×">Fechar ×</button></form>
+          <div class="certificate-preview certificate-preview-large"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>FPB · Teya · <time datetime="2023-12-15" data-en="2023-12-15">15/12/2023</time> · 160 h</p></div>
+          <h3 id="certificate-title-13" data-en="Software Management and Quality">Gestão e qualidade de software</h3>
+          <p class="certificate-description" data-en="Software management and quality coursework from FPB in partnership with Teya.">Unidade curricular de gestão e qualidade de software, ministrada pela FPB em parceria com a Teya.</p>
+          <h4 data-en="Related topics">Temas relacionados</h4>
+          <ul class="tags"><li data-en="Software quality">Qualidade de software</li><li data-en="Management">Gestão</li></ul>
+        </div></dialog>
         <article class="card certificate-card">
+          <div class="certificate-preview"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>FPB · <time datetime="2023-07-08" data-en="2023-07-08">08/07/2023</time> · 160 h</p></div>
           <h3 data-en="Usability, Web, Mobile and Game Development">Usabilidade, desenvolvimento web, mobile e jogos</h3>
-          <p>FPB · <time datetime="2023-07-08" data-en="2023-07-08">08/07/2023</time> · 160 h</p>
+          <p class="certificate-description" data-en="Qualification in usability and development for web, mobile and games.">Qualificação em usabilidade e desenvolvimento para web, mobile e jogos.</p>
+          <ul class="tags"><li data-en="Usability">Usabilidade</li><li>Web</li><li>Mobile</li><li data-en="Games">Jogos</li></ul>
+          <button type="button" class="details-button" data-dialog="certificate-14" aria-haspopup="dialog" data-en="View certificate details ↗">Ver detalhes do certificado ↗</button>
         </article>
+        <dialog id="certificate-14" aria-labelledby="certificate-title-14"><div class="dialog-wrap">
+          <form method="dialog" class="dialog-close"><button class="control" autofocus data-en="Close ×">Fechar ×</button></form>
+          <div class="certificate-preview certificate-preview-large"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>FPB · <time datetime="2023-07-08" data-en="2023-07-08">08/07/2023</time> · 160 h</p></div>
+          <h3 id="certificate-title-14" data-en="Usability, Web, Mobile and Game Development">Usabilidade, desenvolvimento web, mobile e jogos</h3>
+          <p class="certificate-description" data-en="Qualification in usability and development for web, mobile and games.">Qualificação em usabilidade e desenvolvimento para web, mobile e jogos.</p>
+          <h4 data-en="Related topics">Temas relacionados</h4>
+          <ul class="tags"><li data-en="Usability">Usabilidade</li><li>Web</li><li>Mobile</li><li data-en="Games">Jogos</li></ul>
+        </div></dialog>
         <article class="card certificate-card">
+          <div class="certificate-preview"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>FPB · AWS · <time datetime="2023-07-01" data-en="2023-07-01">01/07/2023</time> · 160 h</p></div>
           <h3 data-en="Distributed and Mobile Systems">Sistemas distribuídos e mobile</h3>
-          <p>FPB · AWS · <time datetime="2023-07-01" data-en="2023-07-01">01/07/2023</time> · 160 h</p>
+          <p class="certificate-description" data-en="Distributed and mobile systems coursework from FPB in partnership with AWS.">Unidade curricular de sistemas distribuídos e mobile, ministrada pela FPB em parceria com a AWS.</p>
+          <ul class="tags"><li data-en="Distributed systems">Sistemas distribuídos</li><li>Mobile</li></ul>
+          <button type="button" class="details-button" data-dialog="certificate-15" aria-haspopup="dialog" data-en="View certificate details ↗">Ver detalhes do certificado ↗</button>
         </article>
+        <dialog id="certificate-15" aria-labelledby="certificate-title-15"><div class="dialog-wrap">
+          <form method="dialog" class="dialog-close"><button class="control" autofocus data-en="Close ×">Fechar ×</button></form>
+          <div class="certificate-preview certificate-preview-large"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>FPB · AWS · <time datetime="2023-07-01" data-en="2023-07-01">01/07/2023</time> · 160 h</p></div>
+          <h3 id="certificate-title-15" data-en="Distributed and Mobile Systems">Sistemas distribuídos e mobile</h3>
+          <p class="certificate-description" data-en="Distributed and mobile systems coursework from FPB in partnership with AWS.">Unidade curricular de sistemas distribuídos e mobile, ministrada pela FPB em parceria com a AWS.</p>
+          <h4 data-en="Related topics">Temas relacionados</h4>
+          <ul class="tags"><li data-en="Distributed systems">Sistemas distribuídos</li><li>Mobile</li></ul>
+        </div></dialog>
         <article class="card certificate-card">
+          <div class="certificate-preview"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>DIO · <time datetime="2023-05-02" data-en="2023-05-02">02/05/2023</time> · 4 h</p></div>
           <h3 data-en="HTTP Protocol and PokeAPI Integration">Dominando o protocolo HTTP e integrando com a PokeAPI</h3>
-          <p>DIO · <time datetime="2023-05-02" data-en="2023-05-02">02/05/2023</time> · 4 h</p>
+          <p class="certificate-description" data-en="Course using the PokéAPI to practice HTTP and API consumption.">Curso de integração com a PokéAPI para praticar o protocolo HTTP e o consumo de APIs.</p>
+          <ul class="tags"><li>HTTP</li><li data-en="REST API">API REST</li><li>PokéAPI</li></ul>
+          <button type="button" class="details-button" data-dialog="certificate-16" aria-haspopup="dialog" data-en="View certificate details ↗">Ver detalhes do certificado ↗</button>
         </article>
+        <dialog id="certificate-16" aria-labelledby="certificate-title-16"><div class="dialog-wrap">
+          <form method="dialog" class="dialog-close"><button class="control" autofocus data-en="Close ×">Fechar ×</button></form>
+          <div class="certificate-preview certificate-preview-large"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8h10M7 11h6m4 6v4l-2-1-2 1v-4"/><circle cx="15" cy="15" r="2"/></svg><p>DIO · <time datetime="2023-05-02" data-en="2023-05-02">02/05/2023</time> · 4 h</p></div>
+          <h3 id="certificate-title-16" data-en="HTTP Protocol and PokeAPI Integration">Dominando o protocolo HTTP e integrando com a PokeAPI</h3>
+          <p class="certificate-description" data-en="Course using the PokéAPI to practice HTTP and API consumption.">Curso de integração com a PokéAPI para praticar o protocolo HTTP e o consumo de APIs.</p>
+          <h4 data-en="Related topics">Temas relacionados</h4>
+          <ul class="tags"><li>HTTP</li><li data-en="REST API">API REST</li><li>PokéAPI</li></ul>
+        </div></dialog>
     </div>
   </section>
 
