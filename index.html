@@ -273,7 +273,7 @@ nav a[aria-current="location"] { color: var(--accent); text-decoration: underlin
 @media (max-width: 760px) { .service-grid { grid-template-columns: 1fr; } }
 
 .hero { column-gap: clamp(1rem,5vw,5rem); row-gap: clamp(1.25rem,3vw,2.1rem); }
-.activity { grid-column: 1 / -1; justify-self: end; width: min(100%, 715px); min-width: 0; }
+.activity { grid-column: 1 / -1; justify-self: center; width: min(100%, 715px); min-width: 0; }
 .activity-head { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:.65rem; }
 .activity-head h2 { font-size:clamp(1.15rem,3vw,1.4rem); margin:0; letter-spacing:-.02em; }
 .activity-head a { font-size:.87rem; }
@@ -289,14 +289,16 @@ nav a[aria-current="location"] { color: var(--accent); text-decoration: underlin
 .activity-cell:focus-visible { z-index:1; outline-offset:1px; }
 .activity-legend { display:flex; justify-content:flex-end; align-items:center; gap:.28rem; color:var(--muted); font-size:.73rem; }
 .activity-legend i { width:10px; }
-.activity [data-level="1"] { --activity-color:#accbf8; }
-.activity [data-level="2"] { --activity-color:#78a9f1; }
-.activity [data-level="3"] { --activity-color:#467cd0; }
-.activity [data-level="4"] { --activity-color:#254fa0; }
-[data-theme="dark"] .activity [data-level="1"] { --activity-color:#254479; }
-[data-theme="dark"] .activity [data-level="2"] { --activity-color:#3867b0; }
-[data-theme="dark"] .activity [data-level="3"] { --activity-color:#659cf3; }
-[data-theme="dark"] .activity [data-level="4"] { --activity-color:#abd1ff; }
+.activity [data-level="0"] { --activity-color:#dce6f4; }
+.activity [data-level="1"] { --activity-color:#89bcff; }
+.activity [data-level="2"] { --activity-color:#408cf0; }
+.activity [data-level="3"] { --activity-color:#1d5dc4; }
+.activity [data-level="4"] { --activity-color:#103779; }
+[data-theme="dark"] .activity [data-level="0"] { --activity-color:#1e3049; }
+[data-theme="dark"] .activity [data-level="1"] { --activity-color:#3a72c6; }
+[data-theme="dark"] .activity [data-level="2"] { --activity-color:#5098f5; }
+[data-theme="dark"] .activity [data-level="3"] { --activity-color:#78bcff; }
+[data-theme="dark"] .activity [data-level="4"] { --activity-color:#b5e3ff; }
 #stack-tools[hidden],#stack-certs[hidden] { display:none; }
 .certificates p { margin-bottom:0; }
 .footer .footer-main { align-items:flex-start; padding-block:1.4rem; }
