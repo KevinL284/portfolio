@@ -322,8 +322,9 @@ nav a[aria-current="location"] { color: var(--accent); text-decoration: underlin
 .certificate-images { display:grid; gap:.8rem; margin-bottom:1rem; }
 .certificate-image { display:block; width:100%; height:auto; border:1px solid var(--line); border-radius:.5rem; }
 
-.footer .footer-team { justify-content: flex-start; gap: .85rem; border-top: 1px solid var(--line); padding-block: .95rem; }
-.footer-team img { width: 74px; height: 74px; border: 1px solid var(--line); border-radius: .65rem; }
+.footer-identity { display:flex; align-items:center; gap:.85rem; min-width:0; }
+.footer-identity img { display:block; flex:none; width:60px; height:auto; }
+.footer .footer-main { align-items:center; padding-block:.9rem; }
 </style>
 </head>
 <body>
@@ -989,17 +990,17 @@ nav a[aria-current="location"] { color: var(--accent); text-decoration: underlin
 </main>
 <footer class="footer">
   <div class="wrap footer-main">
-    <div><a class="brand" href="/" data-route="home">Kevin Souza</a>
-    <p data-en="Data engineering · Backend · João Pessoa, Brazil">Engenharia de dados · Backend · João Pessoa, PB</p></div>
+    <div class="footer-identity">
+      <img src="/src/assets/images/sundevbeach-transparent.webp" width="200" height="163" alt="SunDevBeach" loading="lazy" decoding="async">
+      <div><a class="brand" href="/" data-route="home">Kevin Souza</a>
+      <p data-en="Data engineering · Backend · João Pessoa, Brazil">Engenharia de dados · Backend · João Pessoa, PB</p></div>
+    </div>
     <nav aria-label="Links do rodapé" data-label-en="Footer links">
       <a href="/projetos" data-route="projects" data-en="Projects">Projetos</a>
       <a href="/servicos" data-route="services" data-en="Services">Serviços</a>
       <a href="/publicacoes" data-route="writing" data-en="Writing">Publicações</a>
       <a href="/contato" data-route="contact" data-en="Contact">Contato</a>
     </nav>
-  </div>
-  <div class="wrap footer-team">
-    <img src="/src/assets/images/sundevbeach.webp" width="100" height="100" alt="SunDevBeach" loading="lazy" decoding="async">
   </div>
   <div class="wrap footer-bottom">
     <div class="links"><a href="https://github.com/KevinL284">GitHub</a><a href="https://www.linkedin.com/in/kevin-souza-471791236/">LinkedIn</a><a href="https://medium.com/@kevin.lucas284sz">Medium</a><a href="https://wa.me/5583999380246">WhatsApp</a></div>
