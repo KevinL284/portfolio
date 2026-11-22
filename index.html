@@ -303,6 +303,12 @@ nav a[aria-current="location"] { color: var(--accent); text-decoration: underlin
 .footer .footer-main p { margin-top:.25rem; }
 .footer .footer-bottom { border-top:1px solid var(--line); padding-block:.45rem; }
 @media(max-width:520px){.footer .footer-main nav{width:100%;gap:.45rem 1rem}.footer-bottom .links{row-gap:0}}
+
+.certificate-card { display:flex; flex-direction:column; gap:.45rem; }
+.certificate-card h3,.certificate-card p { margin:0; }
+.certificate-card p { font-size:.89rem; }
+.certificate-card .links { margin-top:auto; gap:.35rem .8rem; }
+.certificate-card a { min-height:44px; display:inline-flex; align-items:center; font-weight:650; }
 </style>
 </head>
 <body>
@@ -528,9 +534,87 @@ nav a[aria-current="location"] { color: var(--accent); text-decoration: underlin
       <article class="card"><h3 data-en="Document processing">Processamento documental</h3><ul class="tags"><li>XML / NF-e</li><li>PyMuPDF</li><li>EasyOCR</li><li>PyTorch</li></ul></article>
       <article class="card"><h3 data-en="Delivery and testing">Entrega e testes</h3><ul class="tags"><li>Docker</li><li>Git</li><li>GitHub Actions</li><li>Linux / WSL</li><li>pytest</li></ul></article>
     </div>
-    <div class="card certificates" id="stack-certs" hidden>
-      <h3 data-en="Certificates">Certificados</h3>
-      <p data-en="No certificates listed yet.">Ainda não há certificados listados.</p>
+    <div class="cards certificates" id="stack-certs" hidden>
+        <article class="card certificate-card">
+          <h3 data-en="BairesDev — Machine Learning Training">BairesDev — Machine Learning Training</h3>
+          <p>DIO · BairesDev · <time datetime="2025-09-19" data-en="2025-09-19">19/09/2025</time> · 102 h</p>
+          <div class="links"><a href="https://www.dio.me/certificate/SFQCF5IT/share" target="_blank" rel="noopener noreferrer" data-en="Verify certificate ↗">Validar certificado ↗</a></div>
+        </article>
+        <article class="card certificate-card">
+          <h3 data-en="3rd Enetrix Project Symposium">III Simpósio do Projeto Enetrix</h3>
+          <p>UFPB · GESENE · <time datetime="2025-07-21" data-en="2025-07-21">21/07/2025</time> · 12 h</p>
+          <div class="links"><a href="/src/assets/certificates/simposio-enetrix.pdf" target="_blank" rel="noopener noreferrer" data-en="View PDF ↗">Ver PDF ↗</a></div>
+        </article>
+        <article class="card certificate-card">
+          <h3 data-en="Innovation, Sustainability and Business Competitiveness">Inovação, sustentabilidade e competitividade empresarial</h3>
+          <p>FPB · <time datetime="2025-07-08" data-en="2025-07-08">08/07/2025</time> · 160 h</p>
+          <div class="links"><a href="https://cloudapp.animaeducacao.com.br/validador-documento/?code=e68ff2e12c1c4e668568e04ea92b2ec8" target="_blank" rel="noopener noreferrer" data-en="Verify certificate ↗">Validar certificado ↗</a></div>
+        </article>
+        <article class="card certificate-card">
+          <h3 data-en="Mathematical Structures">Estruturas matemáticas</h3>
+          <p>FPB · <time datetime="2025-07-08" data-en="2025-07-08">08/07/2025</time> · 160 h</p>
+          <div class="links"><a href="https://cloudapp.animaeducacao.com.br/validador-documento/?code=53ca19a7e22f48e185f019b3deb9e175" target="_blank" rel="noopener noreferrer" data-en="Verify certificate ↗">Validar certificado ↗</a></div>
+        </article>
+        <article class="card certificate-card">
+          <h3 data-en="Mortality Data Visualization with Python">Visualização de dados de mortalidade com Python</h3>
+          <p>UFPB · <time datetime="2025-06-05" data-en="2025-06-05">05/06/2025</time> · 4 h</p>
+          <div class="links"><a href="/src/assets/certificates/visualizacao-python.pdf" target="_blank" rel="noopener noreferrer" data-en="View PDF ↗">Ver PDF ↗</a></div>
+        </article>
+        <article class="card certificate-card">
+          <h3 data-en="Liderando Project in Artificial Intelligence">Projeto Liderando em Inteligência Artificial</h3>
+          <p>FPB · <time datetime="2024-12-31" data-en="2024-12-31">31/12/2024</time> · 40 h <span data-en="per document">por documento</span></p>
+          <div class="links"><a href="https://cloudapp.animaeducacao.com.br/validador-documento/?code=f2c39afb45b4497d8fcf8340408e3de7" target="_blank" rel="noopener noreferrer" data-en="Verify 1 ↗">Validar 1 ↗</a><a href="https://cloudapp.animaeducacao.com.br/validador-documento/?code=6ad876e33d444f1aa027fcd149a4cf9d" target="_blank" rel="noopener noreferrer" data-en="Verify 2 ↗">Validar 2 ↗</a><a href="https://cloudapp.animaeducacao.com.br/validador-documento/?code=161cc57e6e894aeea7a0a880ed30b09b" target="_blank" rel="noopener noreferrer" data-en="Verify 3 ↗">Validar 3 ↗</a><a href="https://cloudapp.animaeducacao.com.br/validador-documento/?code=c613c914d9e245c8bdd93d0879257069" target="_blank" rel="noopener noreferrer" data-en="Verify 4 ↗">Validar 4 ↗</a></div>
+        </article>
+        <article class="card certificate-card">
+          <h3 data-en="Professional Qualification in Artificial Intelligence">Qualificação profissional em Inteligência Artificial</h3>
+          <p>FPB · <time datetime="2024-12-24" data-en="2024-12-24">24/12/2024</time> · 160 h</p>
+          <div class="links"><a href="https://cloudapp.animaeducacao.com.br/validador-documento/?code=91f6abaa99b4490da93b4c6f3b47ea12" target="_blank" rel="noopener noreferrer" data-en="Verify certificate ↗">Validar certificado ↗</a></div>
+        </article>
+        <article class="card certificate-card">
+          <h3 data-en="Theory of Computation and Compilers">Teoria da computação e compiladores</h3>
+          <p>FPB · <time datetime="2024-12-24" data-en="2024-12-24">24/12/2024</time> · 160 h</p>
+          <div class="links"><a href="https://cloudapp.animaeducacao.com.br/validador-documento/?code=182bb0dd82ff424eacd7cb3ec5dc1f70" target="_blank" rel="noopener noreferrer" data-en="Verify certificate ↗">Validar certificado ↗</a></div>
+        </article>
+        <article class="card certificate-card">
+          <h3 data-en="Artificial Intelligence">Inteligência Artificial</h3>
+          <p>FPB · IBM · <time datetime="2024-12-18" data-en="2024-12-18">18/12/2024</time> · 160 h</p>
+          <div class="links"><a href="https://cloudapp.animaeducacao.com.br/validador-documento/?code=f68118fbf3d44a8e82b6db373701f9cd" target="_blank" rel="noopener noreferrer" data-en="Verify certificate ↗">Validar certificado ↗</a></div>
+        </article>
+        <article class="card certificate-card">
+          <h3 data-en="Data Structures and Algorithm Analysis">Estruturas de dados e análise de algoritmos</h3>
+          <p>FPB · <time datetime="2024-07-04" data-en="2024-07-04">04/07/2024</time> · 160 h</p>
+          <div class="links"><a href="https://cloudapp.animaeducacao.com.br/validador-documento/?code=df43a7664a2f4537871056c4024aa611" target="_blank" rel="noopener noreferrer" data-en="Verify certificate ↗">Validar certificado ↗</a></div>
+        </article>
+        <article class="card certificate-card">
+          <h3 data-en="Computer Graphics and Virtual Reality">Computação gráfica e realidade virtual</h3>
+          <p>FPB · <time datetime="2024-07-04" data-en="2024-07-04">04/07/2024</time> · 160 h</p>
+          <div class="links"><a href="https://cloudapp.animaeducacao.com.br/validador-documento/?code=6a9bca2ccd2c449c9e54ce703ba5ecee" target="_blank" rel="noopener noreferrer" data-en="Verify certificate ↗">Validar certificado ↗</a></div>
+        </article>
+        <article class="card certificate-card">
+          <h3 data-en="Software Engineering Models, Methods and Techniques">Modelos, métodos e técnicas da engenharia de software</h3>
+          <p>FPB · <time datetime="2023-12-29" data-en="2023-12-29">29/12/2023</time> · 160 h</p>
+          <div class="links"><a href="https://cloudapp.animaeducacao.com.br/validador-documento/?code=3cc2e1fd9db241aba2d0416c19bc8f72" target="_blank" rel="noopener noreferrer" data-en="Verify certificate ↗">Validar certificado ↗</a></div>
+        </article>
+        <article class="card certificate-card">
+          <h3 data-en="Software Management and Quality">Gestão e qualidade de software</h3>
+          <p>FPB · Teya · <time datetime="2023-12-15" data-en="2023-12-15">15/12/2023</time> · 160 h</p>
+          <div class="links"><a href="/src/assets/certificates/gestao-qualidade.pdf" target="_blank" rel="noopener noreferrer" data-en="View PDF ↗">Ver PDF ↗</a></div>
+        </article>
+        <article class="card certificate-card">
+          <h3 data-en="Usability, Web, Mobile and Game Development">Usabilidade, desenvolvimento web, mobile e jogos</h3>
+          <p>FPB · <time datetime="2023-07-08" data-en="2023-07-08">08/07/2023</time> · 160 h</p>
+          <div class="links"><a href="https://cloudapp.animaeducacao.com.br/validador-documento/?code=9977b507692546f69701618005dab80e" target="_blank" rel="noopener noreferrer" data-en="Verify certificate ↗">Validar certificado ↗</a></div>
+        </article>
+        <article class="card certificate-card">
+          <h3 data-en="Distributed and Mobile Systems">Sistemas distribuídos e mobile</h3>
+          <p>FPB · AWS · <time datetime="2023-07-01" data-en="2023-07-01">01/07/2023</time> · 160 h</p>
+          <div class="links"><a href="/src/assets/certificates/sistemas-distribuidos.pdf" target="_blank" rel="noopener noreferrer" data-en="View PDF ↗">Ver PDF ↗</a></div>
+        </article>
+        <article class="card certificate-card">
+          <h3 data-en="HTTP Protocol and PokeAPI Integration">Dominando o protocolo HTTP e integrando com a PokeAPI</h3>
+          <p>DIO · <time datetime="2023-05-02" data-en="2023-05-02">02/05/2023</time> · 4 h</p>
+          <div class="links"><a href="https://www.dio.me/certificate/F1CDAB27/share" target="_blank" rel="noopener noreferrer" data-en="Verify certificate ↗">Validar certificado ↗</a></div>
+        </article>
     </div>
   </section>
 
