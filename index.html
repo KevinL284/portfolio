@@ -109,6 +109,85 @@ dialog::backdrop{background:#061022ba}
 .contact-form button{justify-self:start}
 @media(max-width:760px){.contact{grid-template-columns:1fr}.hero-graph{inset:0 0 0 10%}}
 @media(max-width:440px){.form-row{grid-template-columns:1fr}}
+
+/* Layout and interaction refinements */
+:root { --shadow: 0 18px 45px -34px #15294dba; }
+body { font-family: "Segoe UI", system-ui, sans-serif; }
+.wrap { width: min(1180px, calc(100% - clamp(2rem, 8vw, 7rem))); }
+html { scroll-padding-top: 6rem; }
+.bar { position: sticky; top: 0; z-index: 5; background: var(--surface); background: color-mix(in srgb, var(--surface) 93%, transparent); backdrop-filter: blur(16px); }
+.bar .wrap { min-height: 72px; padding-block: .65rem; }
+.brand { letter-spacing: -.025em; }
+.mark { background: var(--button); color: var(--on-button); border-color: transparent; border-radius: .55rem; }
+nav a { padding: .55rem .1rem; font-weight: 650; }
+nav a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: .45rem; }
+.control, .button { min-height: 44px; border-radius: .55rem; transition: background-color .18s, border-color .18s, transform .18s; }
+.control:hover, .button:hover { transform: translateY(-1px); }
+.control:active, .button:active { transform: none; }
+.skip { z-index: 10; }
+.hero { min-height: min(600px, 82vh); padding-block: clamp(3.5rem, 8vw, 7.5rem); }
+.hero-graph { inset: 2% -1rem -2% 25%; opacity: .25; }
+.hero h1 { max-width: 13ch; text-wrap: balance; }
+.hero .lead { max-width: 49ch; }
+.eyebrow { letter-spacing: .095em; }
+.profile { box-shadow: var(--shadow); border-radius: 1rem; }
+.profile-head { padding: clamp(.9rem, 3vw, 1.5rem); }
+.profile-head img { border-radius: .8rem; }
+.profile-identity { padding: .42rem .65rem; background: var(--surface); border: 1px solid var(--line); border-radius: .5rem; }
+.profile-identity strong, .profile-identity span { display: block; }
+.profile-identity span { color: var(--muted); font-size: .82rem; line-height: 1.35; }
+.section { padding-block: clamp(3rem, 6vw, 5.5rem); }
+.section-heading { margin-bottom: 1.65rem; }
+.section-heading p { max-width: 50ch; margin-bottom: 0; }
+.project-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.15rem; }
+.project-grid[data-active-filter="all"] .project-featured { grid-column: span 2; }
+.project { border-radius: .9rem; box-shadow: var(--shadow); transition: border-color .2s; }
+.project:focus-within, .project:hover { border-color: var(--accent); }
+.project-open { height: clamp(170px, 21vw, 248px); border-bottom: 1px solid var(--line); }
+.project-open img { transition: transform .28s ease; }
+.project-open:hover img, .project-open:focus-visible img { transform: scale(1.035); }
+.project-open img[src$="CostPilotLogo.png"], .project-open img[src$="BHresults8.png"] { object-fit: contain; padding: .55rem; }
+.project-body h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); letter-spacing: -.025em; }
+.project-body > p:not(.category) { max-width: 62ch; }
+.project-body .tags li:nth-child(n+5) { display: none; }
+.details-button { min-height: 44px; }
+.tags li { background: var(--bg); }
+dialog { width: min(780px, calc(100% - 1.5rem)); overscroll-behavior: contain; scrollbar-gutter: stable; box-shadow: 0 22px 85px #03091680; }
+dialog .dialog-close { position: sticky; top: 0; z-index: 1; margin: 0; padding-bottom: .5rem; pointer-events: none; }
+dialog .dialog-close button { pointer-events: auto; }
+dialog h3 { font-size: clamp(1.45rem, 4vw, 2.15rem); letter-spacing: -.045em; }
+.dialog-wrap > p { color: var(--muted); }
+.dialog-wrap .links a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 650; }
+html:has(dialog[open]) { overflow: hidden; }
+.timeline .role { padding-block: 1.45rem; }
+.role .period { padding-top: .19rem; }
+.role .org { margin-bottom: .35rem; }
+.contact-form { box-shadow: var(--shadow); border-radius: 1rem; }
+.contact-form input:not([hidden]), .contact-form textarea { min-height: 44px; }
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--accent); }
+.footer .links > a { display: inline-flex; align-items: center; min-height: 44px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+@media(max-width: 920px) {
+  .project-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .project-grid[data-active-filter="all"] .project-featured { grid-column: auto; }
+}
+@media(max-width: 760px) {
+  html { scroll-padding-top: 1rem; }
+  .bar { position: relative; }
+  .bar .wrap { padding-block: .5rem; }
+  .bar nav { justify-content: space-between; gap: .35rem .65rem; border-top: 1px solid var(--line); padding-top: .25rem; }
+  .hero { min-height: auto; gap: 2rem; }
+  .hero h1 { max-width: 15ch; }
+  .hero-graph { inset: 0 0 12% 10%; opacity: .19; }
+}
+@media(max-width: 520px) {
+  .project-grid { grid-template-columns: 1fr; }
+  .project-open { height: 195px; }
+  .role .period { margin-bottom: .3rem; }
+}
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; }
+}
 </style>
 </head>
 <body>
@@ -132,7 +211,7 @@ dialog::backdrop{background:#061022ba}
   <section class="hero" id="home" aria-labelledby="hero-title">
     <div class="hero-graph"><svg viewBox="0 0 680 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke="currentColor"><path d="M-20 286 L102 230 182 278 268 160 378 196 474 102 601 145 710 52 M102 230 L61 111 191 52 268 160 331 55 474 102 553 25 601 145 635 282 474 102 M182 278 L352 324 378 196 521 267 635 282 M61 111 L-20 67 M331 55 L378 196 M521 267 L601 145"/></g><g fill="currentColor"><circle cx="102" cy="230" r="5"/><circle cx="182" cy="278" r="3"/><circle cx="268" cy="160" r="3"/><circle cx="378" cy="196" r="5"/><circle cx="474" cy="102" r="3"/><circle cx="601" cy="145" r="3"/><circle cx="61" cy="111" r="5"/><circle cx="191" cy="52" r="3"/><circle cx="331" cy="55" r="3"/><circle cx="553" cy="25" r="5"/><circle cx="635" cy="282" r="3"/><circle cx="352" cy="324" r="3"/><circle cx="521" cy="267" r="5"/></g></svg></div>
     <div>
-      <p class="eyebrow" data-en="ENGINEERING · DATA · OPERATIONS">ENGENHARIA · DADOS · OPERAÇÕES</p>
+      <p class="eyebrow" data-en="KEVIN SOUZA / JOÃO PESSOA, BRAZIL">KEVIN SOUZA / JOÃO PESSOA, PB</p>
       <h1 id="hero-title" data-en="Data engineering & backend">Engenharia de dados &amp; backend</h1>
       <p class="lead" data-en="I build data pipelines, APIs and automations for billing and logistics, with a focus on data quality and traceability.">Desenvolvo pipelines de dados, APIs e automações para operações de faturamento e logística, com foco em qualidade dos dados e rastreabilidade.</p>
       <div class="actions">
@@ -143,11 +222,11 @@ dialog::backdrop{background:#061022ba}
     <aside class="profile" aria-label="Perfil profissional" data-label-en="Professional profile">
       <div class="profile-head">
         <img src="https://github.com/KevinL284.png?size=144" alt="" width="64" height="64">
-        <span class="profile-name">Kevin Souza</span>
+        <div class="profile-identity"><strong>Kevin Souza</strong><span data-en="BSc, Computer Science">Bacharel em Ciência da Computação</span></div>
       </div>
       <dl>
         <div><dt data-en="Location">Localização</dt><dd data-en="João Pessoa, Brazil">João Pessoa, PB</dd></div>
-        <div><dt data-en="Education">Formação</dt><dd data-en="BSc, Computer Science">Ciência da Computação</dd></div>
+        <div><dt data-en="Core tools">Stack principal</dt><dd>Python · SQL · Power Query</dd></div>
         <div><dt data-en="Focus">Foco</dt><dd data-en="ETL, APIs, automation">ETL, APIs, automação</dd></div>
       </dl>
     </aside>
@@ -159,11 +238,12 @@ dialog::backdrop{background:#061022ba}
       <p data-en="From collecting and validating data to making it available through APIs and reports.">Da coleta e validação à entrega dos dados via APIs e relatórios.</p>
     </div>
     <div class="filters" role="group" aria-label="Filtrar projetos" data-label-en="Filter projects">
-      <button type="button" class="control" data-filter="all" aria-pressed="true" data-en="All">Todos</button><button type="button" class="control" data-filter="data" aria-pressed="false" data-en="Data &amp; AI">Dados e IA</button><button type="button" class="control" data-filter="backend" aria-pressed="false" data-en="Backend">Backend</button>
+      <button type="button" class="control" aria-controls="project-grid" data-filter="all" aria-pressed="true" data-en="All">Todos</button><button type="button" class="control" aria-controls="project-grid" data-filter="data" aria-pressed="false" data-en="Data &amp; AI">Dados e IA</button><button type="button" class="control" aria-controls="project-grid" data-filter="backend" aria-pressed="false" data-en="Backend">Backend</button>
     </div>
-    <div class="cards"><article class="card project" data-category="backend data">
+    <p id="project-status" class="sr-only" role="status"></p>
+    <div class="cards project-grid" id="project-grid" data-active-filter="all"><article class="card project project-featured" data-category="backend data">
   <button type="button" class="project-open" data-dialog="project-1" aria-labelledby="project-title-1" aria-haspopup="dialog"><img src="src/assets/images/projects/steampipeline.jpg" alt="" loading="lazy"><span aria-hidden="true">↗</span></button>
-  <div class="project-body"><p class="category">2026</p><h3 id="project-title-1" data-en="Steam Data Pipeline API">Steam Data Pipeline API</h3><p data-en="ETL pipeline and REST API for public Steam data.">Pipeline ETL e API REST em Python para consumo, transformação e exposição de dados públicos da Steam.</p><ul class="tags"><li>Python</li><li>FastAPI</li><li>Pandas</li><li>PostgreSQL</li><li>SQLAlchemy</li><li>Docker</li><li>Pytest</li><li>GitHub Actions</li></ul>
+  <div class="project-body"><p class="category" data-en="ETL · REST API · 2026">ETL · API REST · 2026</p><h3 id="project-title-1" data-en="Steam Data Pipeline API">Steam Data Pipeline API</h3><p data-en="ETL pipeline and REST API for public Steam data.">Pipeline ETL e API REST em Python para consumo, transformação e exposição de dados públicos da Steam.</p><ul class="tags"><li>Python</li><li>FastAPI</li><li>Pandas</li><li>PostgreSQL</li><li>SQLAlchemy</li><li>Docker</li><li>Pytest</li><li>GitHub Actions</li></ul>
   <button type="button" class="details-button" data-dialog="project-1" aria-haspopup="dialog" data-en="View details ↗">Ver detalhes ↗</button>
   </div>
  </article>
@@ -259,7 +339,7 @@ dialog::backdrop{background:#061022ba}
     <div class="timeline">
       <article class="card role">
         <p class="period" data-en="MAR 2026 — PRESENT">MAR 2026 — ATUAL</p>
-        <div><h3 data-en="Billing and Operations Data">Faturamento e dados operacionais</h3><p class="org">Souza Distribuidora</p><p class="role-description" data-en="Work with billing and returns. Build WinThor data transformations in Power Query, automate invoice XML checks and develop reports for logistics operations.">Atuação em faturamento e devoluções. Transformo dados do WinThor com Power Query, automatizo conferências de XML fiscal e desenvolvo relatórios para a operação logística.</p></div>
+        <div><h3 data-en="Billing and Operations Data">Faturamento e dados operacionais</h3><p class="org">Souza Distribuidora</p><p class="role-description" data-en="I transform WinThor exports into datasets for analysis, automate electronic invoice checks and prepare returns and shelf-life reports for logistics operations.">Transformo exportações do WinThor em bases para análise, automatizo a conferência de XML fiscal e preparo relatórios de devoluções e validade para a operação logística.</p></div>
       </article>
       <article class="card role">
         <p class="period" data-en="AUG 2025 — MAR 2026">AGO 2025 — MAR 2026</p>
@@ -333,6 +413,7 @@ function setLanguage(english) {
   language.lang = english ? 'pt-BR' : 'en';
   language.setAttribute('aria-label', english ? 'Mudar para português' : 'Switch to English');
   updateThemeControl();
+  updateProjectStatus();
 }
 
 theme.addEventListener('click', () => {
@@ -347,13 +428,26 @@ language.addEventListener('click', () => {
 });
 const filters = [...document.querySelectorAll('[data-filter]')];
 const projectCards = [...document.querySelectorAll('[data-category]')];
+const projectGrid = document.getElementById('project-grid');
+const projectStatus = document.getElementById('project-status');
+
+function updateProjectStatus() {
+  const count = projectCards.filter(card => !card.hidden).length;
+  if (root.lang === 'en') {
+    projectStatus.textContent = count === 1 ? '1 project displayed' : count + ' projects displayed';
+  } else {
+    projectStatus.textContent = count === 1 ? '1 projeto exibido' : count + ' projetos exibidos';
+  }
+}
 for (const filter of filters) {
   filter.addEventListener('click', () => {
     for (const option of filters) option.setAttribute('aria-pressed', String(option === filter));
     const category = filter.dataset.filter;
+    projectGrid.dataset.activeFilter = category;
     for (const card of projectCards) {
       card.hidden = category !== 'all' && !card.dataset.category.split(' ').includes(category);
     }
+    updateProjectStatus();
   });
 }
 
